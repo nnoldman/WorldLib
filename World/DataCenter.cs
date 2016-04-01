@@ -17,8 +17,6 @@ namespace World
             ALog.setWarningHandler(Logger.Log);
             ALog.setErrorHandler(Logger.Log);
 
-            TypeScaner.InitTypes(typeof(TypeScaner).Assembly);
-
             TypeScaner.OnProcess.Add(GameData.Converter.OnScanType);
             TypeScaner.InitTypes(typeof(TypeScaner).Assembly);
 
@@ -40,7 +38,13 @@ namespace World
         }
         static void InitExternWords()
         {
-
+            foreach (var d in GameData.ExternWord.dataMap)
+            {
+                Word wrod = new Word();
+                wrod.content = d.Value.content;
+                wrod.wordTypes.AddRange(d.Value.wordTypes);
+                StoreWord.Add(wrod.content, wrod);
+            }
         }
         static void InitInnerWordTypes()
         {
@@ -64,7 +68,12 @@ namespace World
         }
         static void InitExternWordTypes()
         {
-
+            foreach (var d in GameData.ExternWordType.dataMap)
+            {
+                WordType wt = new WordType();
+                wt.name = d.Value.name;
+                StoreWordType.Add(wt.name, wt);
+            }
         }
         static void InitInnerPhrases()
         {

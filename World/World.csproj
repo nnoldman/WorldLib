@@ -59,6 +59,7 @@
     <Compile Include="Object\ObjectAblityTransitive.cs" />
     <Compile Include="Object\ObjectAttribute.cs" />
     <Compile Include="Object\ObjectDefine.cs" />
+    <Compile Include="Option.cs" />
     <Compile Include="Parser\Phrase\PhraseEntity.cs" />
     <Compile Include="Scene.cs" />
     <Compile Include="Object\SceneObject.cs" />
@@ -100,7 +101,7 @@
     <Compile Include="ExternWord.cs" />
     <Compile Include="Word\FunctionFinder.cs" />
     <Compile Include="Word\FeedbackWordFunction.cs" />
-    <Compile Include="Word\GetHow.cs" />
+    <Compile Include="Word\GetQuery.cs" />
     <Compile Include="Word\GetHowMany.cs" />
     <Compile Include="Word\GetHowMuch.cs" />
     <Compile Include="Word\GetWhat.cs" />

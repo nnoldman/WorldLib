@@ -11,8 +11,5 @@ namespace GameData
     {
         static public readonly string fileName = "xml/ExternPhrase";
         public string content;
-        public string function;
-
-        public List<string> wordTypes = new List<string>();
     }
 }

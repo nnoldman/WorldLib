@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace World
 {
-    public class GetHow : FeedbackWordFunction
+    public class GetQuery : FeedbackWordFunction
     {
     }
 }

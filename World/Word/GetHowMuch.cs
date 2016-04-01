@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace World
 {
-    public class GetHowMuch : GetHow
+    public class GetHowMuch : GetQuery
     {
     }
 }

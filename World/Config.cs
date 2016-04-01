@@ -39,9 +39,9 @@ namespace World
         public const string TokenPreposition = "介词";
         public const string TokenAdverb = "副词";
         public const string TokenNumber = "量词";
-
-
-
+        public const string TokenHas = "有";
+        public const string TokenEverything = "--";
+        public const string TokenCommand = "--";
 
         public const string TokenPunction_WenHao = "？";
         public const string TokenPunction_JuHao = "。";

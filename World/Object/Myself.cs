@@ -59,6 +59,15 @@ namespace World.Object
         }
         public void Input(string text)
         {
+            Option.command.isCommand = text.StartsWith(Config.TokenCommand);
+            if(Option.command.isControlling)
+            {
+                Phrase_Cmd cmd = new Phrase_Cmd();
+                cmd.text = text;
+                if (cmd.Match())
+                    cmd.Growing();
+                return;
+            }
             Sentence sentence = new Sentence();
             sentence.text = text;
             sentence.Parse();

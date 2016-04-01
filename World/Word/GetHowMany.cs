@@ -7,7 +7,7 @@ using World.Parser;
 
 namespace World
 {
-    public class GetHowMany : GetHow
+    public class GetHowMany : GetQuery
     {
         public override Feedback GetFeedback()
         {

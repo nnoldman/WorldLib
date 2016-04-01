@@ -51,7 +51,7 @@ namespace World.Parser
         {
             return null;
         }
-        public virtual bool Match(string text)
+        public virtual bool Match()
         {
             mWordRoot  = new SequenceWord();
             MakeSequence(text, ref mWordRoot, OnUnknownContent);
@@ -79,10 +79,6 @@ namespace World.Parser
                 return false;
             return true;
         }
-        public virtual void GenerateElement()
-        {
-
-        }
         public void OnUnknownContent(string text)
         {
             throw new Exception();
@@ -97,7 +93,8 @@ namespace World.Parser
         {
             foreach (var p in phraseStore)
             {
-                if (p.Match(text))
+                p.text = text;
+                if (p.Match())
                 {
                     return p.Copy();
                 }

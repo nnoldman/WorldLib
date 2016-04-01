@@ -9,8 +9,7 @@ namespace World.Parser
     public class Word : IBool
     {
         public string content;
-        public string function;
-
+        public List<string> function;
         public List<string> wordTypes = new List<string>();
         public bool IsType(string wordTypeName)
         {

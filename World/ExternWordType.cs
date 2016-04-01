@@ -10,9 +10,7 @@ namespace GameData
     public class ExternWordType : GameData<ExternWordType>
     {
         static public readonly string fileName = "xml/ExternWordType";
-        public string content;
+        public string name;
         public string function;
-
-        public List<string> wordTypes = new List<string>();
     }
 }
