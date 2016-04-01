@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication2", "WindowsFormsApplication2\WindowsFormsApplication2.csproj", "{6FA8A372-C561-4286-A19A-672AE8C72971}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "World", "World\World.csproj", "{53FD0398-9D7E-4387-9C66-4D52761613B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientPlugins", "ClientPlugin\ClientPlugins.csproj", "{9460E33F-8A2D-4618-88F5-3B1209740FAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6FA8A372-C561-4286-A19A-672AE8C72971}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FA8A372-C561-4286-A19A-672AE8C72971}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FA8A372-C561-4286-A19A-672AE8C72971}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FA8A372-C561-4286-A19A-672AE8C72971}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53FD0398-9D7E-4387-9C66-4D52761613B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53FD0398-9D7E-4387-9C66-4D52761613B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53FD0398-9D7E-4387-9C66-4D52761613B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53FD0398-9D7E-4387-9C66-4D52761613B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9460E33F-8A2D-4618-88F5-3B1209740FAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9460E33F-8A2D-4618-88F5-3B1209740FAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9460E33F-8A2D-4618-88F5-3B1209740FAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9460E33F-8A2D-4618-88F5-3B1209740FAD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ClientPlugins</name>
+    </assembly>
+    <members>
+        <member name="M:ARandom.Range(System.Int32,System.Int32)">
+            <summary>
+            left closed,right open.[0,100)
+            </summary>
+            <param name="min"></param>
+            <param name="max"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ARandom.Get">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AResource.LoadXML``1(System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="content">xml text</param>
+            <returns></returns>
+        </member>
+        <member name="M:AResource.SaveXML``1(``0,System.String)">
+            <summary>
+             保存结构体到XML中。形式如：文件头?xml version="1.0" encoding="utf-8"?,根节点root
+            </summary>
+        </member>
+        <member name="M:AResource.LoadObjectWithMeta(System.String,System.Collections.Generic.Dictionary{System.Int32,System.Object}@,System.Collections.Generic.Dictionary{System.String,System.Type}@)">
+            <summary>
+            <record id="1" type="typeName">
+            <content ></content>
+            </record>
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="F:GameDataLoader.textLoader">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GameDataLoader.LoadData(System.Collections.Generic.List{System.Type},System.Func{System.String,System.Type,System.Type,System.Object},System.Action{System.Int32,System.Int32})">
+            <summary>
+            加载数据逻辑
+            </summary>
+            <param name="gameDataType">加载数据列表</param>
+            <param name="formatData">处理数据方法</param>
+            <param name="progress">数据处理进度</param>
+        </member>
+        <member name="M:GameDataLoader.LoadIntMap(System.Security.SecurityElement,System.String)">
+            <summary>
+            从指定的 XML 文档加载 map 数据。
+            </summary>
+            <param name="xml">XML 文档</param>
+            <returns>map 数据</returns>
+        </member>
+        <member name="M:GameDataLoader.LoadXML(System.String)">
+            <summary>
+            从指定的字符串加载 XML 文档。
+            </summary>
+            <param name="xml">包含要加载的 XML 文档的字符串。</param>
+            <returns>编码安全对象的 XML 对象模型。</returns>
+        </member>
+    </members>
+</doc>
