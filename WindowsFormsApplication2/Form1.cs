@@ -16,7 +16,7 @@ namespace WindowsFormsApplication2
         public Form1()
         {
             InitializeComponent();
-
+            this.textBox2.Focus();
             World.Scene.Instance.Initialize();
             Myself.Instance.outHandler += OnTalk;
         }
@@ -26,7 +26,7 @@ namespace WindowsFormsApplication2
             this.textBox1.Text += "\n" + text;
         }
 
-        private void onKeyDown(object sender, KeyEventArgs e)
+        private void onKeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Return)
             {
