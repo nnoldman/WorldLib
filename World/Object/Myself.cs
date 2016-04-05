@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using World.Parser;
+using World.Processor;
 
 namespace World.Object
 {
@@ -63,14 +63,13 @@ namespace World.Object
             if(Option.command.isControlling)
             {
                 Phrase_Cmd cmd = new Phrase_Cmd();
-                cmd.text = text;
+                cmd.builder.Append(text);
                 if (cmd.Match())
                     cmd.Growing();
                 return;
             }
-            Sentence sentence = new Sentence();
-            sentence.text = text;
-            sentence.Parse();
+            Scanner scanner = new Scanner();
+            var words = scanner.Scan(text);
         }
         public void OutPut(string text)
         {

@@ -59,11 +59,13 @@
             // textBox1
             // 
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(921, 353);
-            this.textBox1.TabIndex = 0;
+            this.textBox1.TabIndex = 2;
+            this.textBox1.TabStop = false;
             // 
             // textBox2
             // 
@@ -73,7 +75,7 @@
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(921, 97);
-            this.textBox2.TabIndex = 0;
+            this.textBox2.TabIndex = 1;
             this.textBox2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.onKeyUp);
             // 
             // Form1
@@ -84,6 +86,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Activated += new System.EventHandler(this.Form1_Activated);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

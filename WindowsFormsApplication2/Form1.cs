@@ -16,7 +16,6 @@ namespace WindowsFormsApplication2
         public Form1()
         {
             InitializeComponent();
-            this.textBox2.Focus();
             World.Scene.Instance.Initialize();
             Myself.Instance.outHandler += OnTalk;
         }
@@ -36,6 +35,11 @@ namespace WindowsFormsApplication2
                 Myself.Instance.Input(content);
                 this.textBox2.Clear();
             }
+        }
+
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            this.textBox2.Focus();
         }
     }
 }

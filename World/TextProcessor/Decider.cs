@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace World.InnerPhrase
+namespace World.Processor
 {
+    public class Decider
+    {
+    }
 }

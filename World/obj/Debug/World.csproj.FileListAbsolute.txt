@@ -1,0 +1,7 @@
+H:\WorldLib\World\obj\Debug\World.csprojResolveAssemblyReference.cache
+H:\WorldLib\World\bin\Debug\World.dll
+H:\WorldLib\World\bin\Debug\World.pdb
+H:\WorldLib\World\bin\Debug\ClientPlugins.dll
+H:\WorldLib\World\bin\Debug\ClientPlugins.pdb
+H:\WorldLib\World\obj\Debug\World.dll
+H:\WorldLib\World\obj\Debug\World.pdb

@@ -4,3 +4,7 @@ Z:\sgq_client\ClientPlugin\Libs\ClientPlugins.XML
 Z:\sgq_client\ClientPlugin\LibSolution\ClientPlugin\obj\Debug\ClientPlugins.csprojResolveAssemblyReference.cache
 Z:\sgq_client\ClientPlugin\LibSolution\ClientPlugin\obj\Debug\ClientPlugins.dll
 Z:\sgq_client\ClientPlugin\LibSolution\ClientPlugin\obj\Debug\ClientPlugins.pdb
+H:\Libs\ClientPlugins.dll
+H:\Libs\ClientPlugins.pdb
+H:\WorldLib\ClientPlugin\obj\Debug\ClientPlugins.dll
+H:\WorldLib\ClientPlugin\obj\Debug\ClientPlugins.pdb
