@@ -63,13 +63,19 @@ namespace World.Object
             if(Option.command.isControlling)
             {
                 Phrase_Cmd cmd = new Phrase_Cmd();
-                cmd.builder.Append(text);
+                cmd.builder.Append(text.Substring(Config.TokenCommand.Length));
                 if (cmd.Match())
                     cmd.Growing();
                 return;
             }
             Scanner scanner = new Scanner();
             var words = scanner.Scan(text);
+            Parser parser = new Parser();
+            Phrase p = parser.Parse(words);
+            if (p)
+            {
+                OutPut(p.GetFeedback().GetContent());
+            }
         }
         public void OutPut(string text)
         {

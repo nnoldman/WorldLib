@@ -34,7 +34,47 @@ namespace World
         }
         static void InitInnerWords()
         {
+            {
+                Word w = new Word();
+                w.content = Config.TokenYou;
+                WordTypeFunction tf = new WordTypeFunction();
+                tf.typeName = Config.TokenPronoun;
+                tf.functionName = "Relative";
+                w.typeFunctions.Add(tf);
 
+                StoreWord.Add(w.content, w);
+            }
+            {
+                Word w = new Word();
+                w.content = Config.TokenBe1;
+                WordTypeFunction tf = new WordTypeFunction();
+                tf.typeName = Config.TokenCopula;
+                tf.functionName = "Is";
+                w.typeFunctions.Add(tf);
+
+                StoreWord.Add(w.content, w);
+            }
+            {
+                Word w = new Word();
+                w.content = Config.TokenMe;
+                WordTypeFunction tf = new WordTypeFunction();
+                tf.typeName = Config.TokenPronoun;
+                tf.functionName = "Relative";
+                w.typeFunctions.Add(tf);
+
+                StoreWord.Add(w.content, w);
+            }
+
+            {
+                Word w = new Word();
+                w.content = Config.TokenWho;
+                WordTypeFunction tf = new WordTypeFunction();
+                tf.typeName = Config.TokenPronoun;
+                tf.functionName = "Relative";
+                w.typeFunctions.Add(tf);
+
+                StoreWord.Add(w.content, w);
+            }
         }
         static void InitExternWords()
         {
@@ -42,7 +82,7 @@ namespace World
             {
                 Word wrod = new Word();
                 wrod.content = d.Value.content;
-                wrod.wordTypes.AddRange(d.Value.wordTypes);
+                wrod.typeFunctions.AddRange(d.Value.wordTypes);
                 StoreWord.Add(wrod.content, wrod);
             }
         }
@@ -60,7 +100,9 @@ namespace World
                     if (attr != null)
                     {
                         WordTypeName typename = (WordTypeName)attr;
-                        object wordtype = (tp.GetConstructor(Type.EmptyTypes).Invoke(null));
+                        WordType wordtype =(WordType) (tp.GetConstructor(Type.EmptyTypes).Invoke(null));
+                        wordtype.name = typename.Name;
+                        wordtype.parent = typename.ParentName;
                         StoreWordType.Add(typename.Name, (WordType)wordtype);
                     }
                 }
@@ -77,7 +119,23 @@ namespace World
         }
         static void InitInnerPhrases()
         {
+            Assembly asm = typeof(DataCenter).Assembly;
+            Type[] types = asm.GetTypes();
+            Type baseType = typeof(Phrase);
 
+            foreach (var tp in types)
+            {
+                if (tp.IsSubclassOf(baseType))
+                {
+                    Phrase phrase = (Phrase)(tp.GetConstructor(Type.EmptyTypes).Invoke(null));
+                    var attrs = tp.GetCustomAttribute(typeof(PhraseName));
+                    if (attrs != null)
+                    {
+                        phrase.name = ((PhraseName)attrs).Name;
+                        StorePhrase.Add(phrase.name, phrase);
+                    }
+                }
+            }
         }
 
         static void InitExternPhrases()

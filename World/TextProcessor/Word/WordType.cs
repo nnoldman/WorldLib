@@ -9,12 +9,9 @@ namespace World.Processor
     public  class WordType : IBool
     {
         public string name;
-        public WordType parent;
+        public string parent;
         public List<WordType> children = new List<WordType>();
-        public bool CanPush(WordType type)
-        {
-            throw new Exception();
-        }
+
         WordType GetType(string name)
         {
             WordType wt;
@@ -44,8 +41,12 @@ namespace World.Processor
         {
             if (this.name == name)
                 return true;
-            if (parent)
-                return parent.IsType(name);
+            if (!string.IsNullOrEmpty(parent))
+            {
+                WordType wt = StoreWordType.Get(parent);
+                if (wt)
+                    return wt.IsType(name);
+            }
             return false;
         }
         public SetWordTypeParentResult SetWordTypeParent(string name, string parent)
@@ -65,8 +66,7 @@ namespace World.Processor
             if (parentType.HasChild(name))
                 return SetWordTypeParentResult.YetHasSameChild;
 
-            newtype.parent.RemoveChild(name);
-            newtype.parent = parentType;
+            newtype.parent = parentType.name;
             parentType.children.Add(newtype);
 
             return SetWordTypeParentResult.Sucess;
@@ -88,7 +88,7 @@ namespace World.Processor
                 }
                 else
                 {
-                    newtype.parent = wt;
+                    newtype.parent = parent;
                     wt.children.Add(newtype);
                 }
             }

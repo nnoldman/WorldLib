@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace World.Processor
 {
-    public  class Phrase
+    public class Phrase : IBool
     {
         //public string text;
+        public string name = string.Empty;
 
         public Word root = new Word();
 
@@ -54,6 +55,10 @@ namespace World.Processor
         public virtual Feedback GetFeedback()
         {
             return null;
+        }
+        public bool Match(List<Word> words)
+        {
+            throw new Exception();
         }
         public virtual bool Match()
         {
@@ -110,7 +115,7 @@ namespace World.Processor
         public static void MakeSequence(string text, ref SequenceWord last, Action<string> unknownHandler)
         {
             int startIndex = 0;
-            int index = text.Length - 1;
+            int index = text.Length;
 
             while (index > startIndex&&index>0)
             {
@@ -130,10 +135,10 @@ namespace World.Processor
                 }
                 else
                 {
-                    if (unknownHandler != null)
-                        unknownHandler(cur);
+                    index--;
+                    //if (unknownHandler != null)
+                    //    unknownHandler(cur);
                 }
-                index--;
             }
         }
 

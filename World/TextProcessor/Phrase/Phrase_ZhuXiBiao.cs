@@ -10,7 +10,8 @@ namespace World.Processor
 {
     [PhraseElement(wordType = Config.TokenNoun)]
     [PhraseElement(wordType = Config.TokenCopula)]
-    [PhraseElement(wordType = Config.TokenEverything)]
+    [PhraseElement(wordType = Config.TokenUnknown)]
+    [PhraseName(Name = Config.TokenPhrase_Cmd)]
     public class Phrase_Cmd : Phrase
     {
         public void Growing()
@@ -25,6 +26,7 @@ namespace World.Processor
     [PhraseElement(wordType = Config.TokenCopula)]
     [PhraseElement(wordType = Config.TokenPronoun)]
     [PhraseElement(wordType = Config.TokenPunction_WenHao)]
+    [PhraseName(Name = Config.TokenPhrase_ZhuXiBiao)]
     public class Phrase_ZhuXiBiao : Phrase
     {
         public SceneObject executer;
@@ -33,8 +35,10 @@ namespace World.Processor
     [PhraseElement(wordType = Config.TokenNoun)]
     [PhraseElement(wordType = Config.TokenCopula)]
     [PhraseElement(wordType = Config.TokenQueryPronoun)]
+    [PhraseName(Name = Config.TokenPhrase_ZhuXiBiaoQuery)]
     public class Phrase_ZhuXiBiao_YiWen : Phrase
     {
+
         public override Feedback GetFeedback()
         {
             SceneObject obj = Scene.Instance.GetObject(mWordRoot.word.content);

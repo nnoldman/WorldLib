@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace World.Processor
 {
-    [WordTypeName(Name = Config.TokenPronoun)]
+    [WordTypeName(Name = Config.TokenPronoun, ParentName = Config.TokenNoun)]
     public class WordType_Pronoun : WordType
     {
     }

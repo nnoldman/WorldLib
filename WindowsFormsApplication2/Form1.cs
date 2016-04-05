@@ -32,7 +32,7 @@ namespace WindowsFormsApplication2
                 string content = this.textBox2.Text;
                 if (string.IsNullOrEmpty(content))
                     return;
-                Myself.Instance.Input(content);
+                Myself.Instance.Input(content.Trim('\r', '\n'));
                 this.textBox2.Clear();
             }
         }

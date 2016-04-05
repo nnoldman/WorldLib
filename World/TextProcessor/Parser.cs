@@ -8,9 +8,19 @@ namespace World.Processor
 {
     public class Parser
     {
-        public void Parse(List<Word> words)
+        public Phrase Parse(List<Word> words)
         {
+            Phrase p = null;
 
+            foreach(var phrase in StorePhrase.getStore)
+            {
+                if (phrase.Value.Match(words))
+                {
+                    p = phrase.Value;
+                    break;
+                }
+            }
+            return p;
         }
     }
 }

@@ -10,6 +10,7 @@ namespace World
 {
     public class Neuron
     {
+        public delegate void WrodFunction(SequenceWord seq);
         public static bool HasAttribute(SequenceWord seq, string name)
         {
             throw new Exception();
@@ -19,6 +20,10 @@ namespace World
             throw new Exception();
         }
         public static bool HasObjects(SequenceWord seq,string name)
+        {
+            throw new Exception();
+        }
+        public static bool Is(SequenceWord seq, string name)
         {
             throw new Exception();
         }
@@ -39,6 +44,43 @@ namespace World
             throw new Exception();
         }
         public static bool IsAnyOneHasAttribute(SequenceWord seq, string name)
+        {
+            throw new Exception();
+        }
+
+        public static void Relative(SequenceWord seq)
+        {
+            throw new Exception();
+        }
+        public static void ActionOperationTrue(SequenceWord seq)
+        {
+            throw new Exception();
+        }
+        public static void ActionOperationFalse(SequenceWord seq)
+        {
+            throw new Exception();
+        }
+        public static void Decorate(SequenceWord seq)
+        {
+            throw new Exception();
+        }
+        public static string OutNumber()
+        {
+            throw new Exception();
+        }
+        public static string OutWhat()
+        {
+            throw new Exception();
+        }
+        public static string OutWhere()
+        {
+            throw new Exception();
+        }
+        public static string OutWhen()
+        {
+            throw new Exception();
+        }
+        public static string OutWho()
         {
             throw new Exception();
         }

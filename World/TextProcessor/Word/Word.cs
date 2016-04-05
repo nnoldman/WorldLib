@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace World.Processor
 {
+    public class WordTypeFunction
+    {
+        public string typeName;
+        public string functionName;
+    }
     public class Word : IBool
     {
         public string content;
-        public List<string> function;
-        public List<string> wordTypes = new List<string>();
+        public List<WordTypeFunction> typeFunctions = new List<WordTypeFunction>();
 
         public virtual bool IsKnown()
         {
@@ -18,11 +22,16 @@ namespace World.Processor
         }
         public bool IsType(string wordTypeName)
         {
-            foreach(var wt in wordTypes)
+            WordType wordtype = StoreWordType.Get(wordTypeName);
+            if(wordtype)
             {
-                if (wt == wordTypeName)
-                    return true;
+                foreach (var wt in typeFunctions)
+                {
+                    if (wordtype.IsType(wt.typeName))
+                        return true;
+                }
             }
+
             return false;
         }
         public void Clear()

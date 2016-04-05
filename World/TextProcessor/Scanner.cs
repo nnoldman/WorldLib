@@ -90,7 +90,7 @@ namespace World.Processor
                     }
                     else
                     {
-                        i = tw.end + 1;
+                        i = tw.end;
                         tempWordIndex++;
                     }
                 }
@@ -122,7 +122,7 @@ namespace World.Processor
 
         TempWord GetOneWord(string text, int start)
         {
-            for (int i = text.Length - 1; i > 0; --i)
+            for (int i = text.Length; i > 0; --i)
             {
                 string cur = text.Substring(0, i);
                 Word w = StoreWord.Get(cur);

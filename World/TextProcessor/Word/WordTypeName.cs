@@ -10,15 +10,20 @@ namespace World.Processor
     public  class WordTypeName : Attribute
     {
         public string Name;
+        public string ParentName;
         public Type type;
     }
 
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = false)]
     public class PhraseElement : Attribute
     {
-        public string wordType;
+        public string wordType = Config.TokenUnknown;
     }
-
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
+    public class PhraseName : Attribute
+    {
+        public string Name = string.Empty;
+    }
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
     public  class PhraseElementNull : Attribute
     {

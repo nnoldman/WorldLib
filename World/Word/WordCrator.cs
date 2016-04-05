@@ -25,7 +25,7 @@ namespace World
             WordType wt = StoreWordType.Get(this.wordTypeName);
             Word w = new Word();
             w.content = postion == PostionType.Before ? this.word.content + word.content : word.content + this.word.content;
-            w.wordTypes.Add(wordTypeName);
+            //w.typeFunctions.Add(wordTypeName);
             StoreWord.Add(w.content, w);
             return w;
         }

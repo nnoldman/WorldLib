@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 namespace World.Processor
 {
     [WordTypeName(Name = Config.TokenVerb)]
-    public  class WordType_Verb : WordType
+    public class WordType_Verb : WordType
     {
     }
 
-    [WordTypeName(Name = Config.TokenCopula)]
-    public  class WordType_Copula : WordType_Verb
+    [WordTypeName(Name = Config.TokenCopula, ParentName = Config.TokenVerb)]
+    public class WordType_Copula : WordType_Verb
     {
     }
 
-    [WordTypeName(Name = Config.TokenPassivity)]
+    [WordTypeName(Name = Config.TokenPassivity, ParentName = Config.TokenVerb)]
     public class WordType_Passivity : WordType_Verb
     {
     }
