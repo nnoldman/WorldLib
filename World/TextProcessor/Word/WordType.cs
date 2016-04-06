@@ -12,6 +12,16 @@ namespace World.Processor
         public string parent;
         public List<WordType> children = new List<WordType>();
 
+        WordType parentType
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(parent))
+                    return null;
+                return StoreWordType.Get(parent);
+            }
+        }
+
         WordType GetType(string name)
         {
             WordType wt;
@@ -37,17 +47,22 @@ namespace World.Processor
             }
             return false;
         }
+        public static bool TypeIsType(string name,string typeName)
+        {
+            WordType wt = StoreWordType.Get(typeName);
+            if (!wt)
+                return false;
+            return wt.IsType(name);
+        }
         public bool IsType(string name)
         {
             if (this.name == name)
                 return true;
-            if (!string.IsNullOrEmpty(parent))
-            {
-                WordType wt = StoreWordType.Get(parent);
-                if (wt)
-                    return wt.IsType(name);
-            }
-            return false;
+            WordType parentType = this.parentType;
+            if (parentType)
+                return parentType.IsType(name);
+            else
+                return false;
         }
         public SetWordTypeParentResult SetWordTypeParent(string name, string parent)
         {

@@ -58,11 +58,20 @@ namespace World.Processor
         }
         public bool Match(List<Word> words)
         {
-            throw new Exception();
+            if (words.Count != elements.Count)
+                return false;
+            for (int i = 0; i < words.Count; ++i)
+            {
+                Word word = words[i];
+                PhraseElement element = elements[i];
+                if (!word.IsType(element.wordType))
+                    return false;
+            }
+            return true;
         }
         public virtual bool Match()
         {
-            mWordRoot  = new SequenceWord();
+            mWordRoot = new SequenceWord();
             MakeSequence(builder.ToString(), ref mWordRoot, OnUnknownContent);
             return Match(mWordRoot);
         }
@@ -117,7 +126,7 @@ namespace World.Processor
             int startIndex = 0;
             int index = text.Length;
 
-            while (index > startIndex&&index>0)
+            while (index > startIndex && index > 0)
             {
                 string cur = text.Substring(startIndex, index);
                 Word w = StoreWord.Get(cur);

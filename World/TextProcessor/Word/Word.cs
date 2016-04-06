@@ -22,14 +22,11 @@ namespace World.Processor
         }
         public bool IsType(string wordTypeName)
         {
-            WordType wordtype = StoreWordType.Get(wordTypeName);
-            if(wordtype)
+            foreach (var wt in typeFunctions)
             {
-                foreach (var wt in typeFunctions)
-                {
-                    if (wordtype.IsType(wt.typeName))
-                        return true;
-                }
+                WordType typefuncType = StoreWordType.Get(wt.typeName);
+                if (typefuncType && typefuncType.IsType(wordTypeName))
+                    return true;
             }
 
             return false;

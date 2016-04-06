@@ -11,16 +11,3 @@ H:\WorldLib\WindowsFormsApplication2\bin\Debug\ClientPlugins.pdb
 H:\WorldLib\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.csprojResolveAssemblyReference.cache
 H:\WorldLib\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.exe
 H:\WorldLib\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.pdb
-D:\src\WorldLib\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.exe.config
-D:\src\WorldLib\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.exe
-D:\src\WorldLib\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.pdb
-D:\src\WorldLib\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.exe
-D:\src\WorldLib\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.pdb
-D:\src\WorldLib\WindowsFormsApplication2\bin\Debug\World.dll
-D:\src\WorldLib\WindowsFormsApplication2\bin\Debug\ClientPlugins.dll
-D:\src\WorldLib\WindowsFormsApplication2\bin\Debug\World.pdb
-D:\src\WorldLib\WindowsFormsApplication2\bin\Debug\ClientPlugins.pdb
-D:\src\WorldLib\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.csprojResolveAssemblyReference.cache
-D:\src\WorldLib\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Form1.resources
-D:\src\WorldLib\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Properties.Resources.resources
-D:\src\WorldLib\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.csproj.GenerateResource.Cache

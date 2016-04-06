@@ -10,4 +10,8 @@ namespace World.Processor
     public class WordType_Pronoun : WordType
     {
     }
+    [WordTypeName(Name = Config.TokenQueryPronoun, ParentName = Config.TokenPronoun)]
+    public class WordType_QueryPronoun : WordType
+    {
+    }
 }

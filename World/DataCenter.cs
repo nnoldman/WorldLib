@@ -69,7 +69,7 @@ namespace World
                 Word w = new Word();
                 w.content = Config.TokenWho;
                 WordTypeFunction tf = new WordTypeFunction();
-                tf.typeName = Config.TokenPronoun;
+                tf.typeName = Config.TokenQueryPronoun;
                 tf.functionName = "Relative";
                 w.typeFunctions.Add(tf);
 
