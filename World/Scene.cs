@@ -24,7 +24,7 @@ namespace World
             }
         }
 
-        Dictionary<string, SceneObject> mObjects = new Dictionary<string, SceneObject>();
+        Dictionary<int, SceneObject> mObjects = new Dictionary<int, SceneObject>();
 
         public void Initialize()
         {
@@ -34,22 +34,33 @@ namespace World
         }
         public void AddObject(SceneObject obj)
         {
-            if (string.IsNullOrEmpty(obj.name))
+            if (!mObjects.ContainsKey(obj.id))
             {
-                Logger.Error("Name is Empty");
-                return;
-            }
-            if (!mObjects.ContainsKey(obj.name))
-            {
-                mObjects.Add(obj.name, obj);
+                mObjects.Add(obj.id, obj);
             }
         }
-
+        public void RemoveObject(SceneObject obj)
+        {
+            mObjects.Remove(obj.id);
+        }
+        public string OutPut()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach(var obj in mObjects)
+            {
+                sb.Append("\r\n");
+                sb.Append(obj.Value.OutPut());
+            }
+            return sb.ToString();
+        }
         public SceneObject GetObject(string name)
         {
-            SceneObject obj;
-            mObjects.TryGetValue(name, out obj);
-            return obj;
+            foreach(var obj in mObjects)
+            {
+                if (name == obj.Value.name)
+                    return obj.Value;
+            }
+            return null;
         }
         public void Parse(List<Phrase> phrases)
         {

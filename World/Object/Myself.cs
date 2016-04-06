@@ -71,12 +71,18 @@ namespace World.Object
             Scanner scanner = new Scanner();
             var words = scanner.Scan(text);
             Parser parser = new Parser();
-
             Phrase p = parser.Parse(words);
             if (p)
             {
-                OutPut(p.GetFeedback().GetContent());
+                OutPut(p.OutPut());
+                OutPut(Scene.Instance.OutPut());
+                //OutPutAll();
+                //OutPut(p.GetFeedback().GetContent());
             }
+        }
+        void OutPutAll()
+        {
+            Scene.Instance.OutPut();
         }
         public void OutPut(string text)
         {

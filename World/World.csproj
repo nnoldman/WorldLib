@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="Config.cs" />
     <Compile Include="DataCenter.cs" />
-    <Compile Include="ExternPhrase.cs" />
+    <Compile Include="ExternPhraseData.cs" />
     <Compile Include="ExternWordType.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="IBool.cs" />
@@ -61,6 +61,7 @@
     <Compile Include="Object\ObjectDefine.cs" />
     <Compile Include="Option.cs" />
     <Compile Include="TextProcessor\Parser.cs" />
+    <Compile Include="TextProcessor\Phrase\ExternPhrase.cs" />
     <Compile Include="TextProcessor\Phrase\PhraseEntity.cs" />
     <Compile Include="TextProcessor\Word\UnknownWord.cs" />
     <Compile Include="Scene.cs" />
@@ -74,7 +75,6 @@
     <Compile Include="TextProcessor\Action\Action_Question.cs" />
     <Compile Include="TextProcessor\Action\Action_Test.cs" />
     <Compile Include="TextProcessor\Decider.cs" />
-    <Compile Include="TextProcessor\ExternPhrase.cs" />
     <Compile Include="TextProcessor\Feedback.cs" />
     <Compile Include="TextProcessor\Feedback_Ask.cs" />
     <Compile Include="TextProcessor\Feedback_Description.cs" />

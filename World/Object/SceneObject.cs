@@ -18,8 +18,25 @@ namespace World.Object
         public SceneObject()
         {
             id = ++CountOfObject;
+            Scene.Instance.AddObject(this);
         }
-
+        ~SceneObject()
+        {
+            id = ++CountOfObject;
+            Scene.Instance.AddObject(this);
+        }
+        public virtual string OutPut()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(string.Format("SceneObject({0}):", name));
+            sb.Append("\n");
+            foreach (var attr in attributes)
+            {
+                sb.Append("    ");
+                sb.Append(attr.OutPut());
+            }
+            return sb.ToString();
+        }
         public void Execute(string action,string target)
         {
 

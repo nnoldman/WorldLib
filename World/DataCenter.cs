@@ -140,7 +140,12 @@ namespace World
 
         static void InitExternPhrases()
         {
-
+            foreach(var d in GameData.ExternPhraseData.dataMap)
+            {
+                ExternPhrase phrase = new ExternPhrase();
+                phrase.Init(d.Value);
+                StorePhrase.Add(d.Key.ToString(), phrase);
+            }
         }
 
         public static string LoadFile(string file)

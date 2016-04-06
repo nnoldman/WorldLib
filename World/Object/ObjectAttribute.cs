@@ -31,5 +31,11 @@ namespace World.Object
         {
             return content;
         }
+        public override string OutPut()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(string.Format("=>{0}{1}", name, content));
+            return sb.ToString();
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace World.Processor
                 return mElements;
             }
         }
-        List<PhraseElement> mElements;
+        protected List<PhraseElement> mElements;
 
         public StringBuilder builder = new StringBuilder();
 
@@ -74,6 +74,18 @@ namespace World.Processor
             mWordRoot = new SequenceWord();
             MakeSequence(builder.ToString(), ref mWordRoot, OnUnknownContent);
             return Match(mWordRoot);
+        }
+
+        public string OutPut()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(string.Format("Phrase({0}):", name));
+            foreach (var ele in elements)
+            {
+                sb.Append(ele.wordType);
+                sb.Append('.');
+            }
+            return sb.ToString();
         }
         bool Match(SequenceWord seq)
         {
