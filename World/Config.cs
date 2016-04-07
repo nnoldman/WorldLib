@@ -12,6 +12,10 @@ namespace World
         public const int ValueUnknown = 50;
         public const int ValueTrue = 100;
 
+        public const string TokenEnter = "\r\n";
+
+        public const string TokenXiaoLi = "小力";
+
         public const string TokenUnknown = "??";
         public const string TokenTrue = "是";
         public const string TokenFalse = "不";

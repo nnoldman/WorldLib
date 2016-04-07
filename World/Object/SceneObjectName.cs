@@ -12,7 +12,7 @@ namespace World.Object
         public SceneObjectName()
         {
             kind = Config.TokenName;
-            content = string.Empty;
+            this.name = string.Empty;
         }
     }
 }

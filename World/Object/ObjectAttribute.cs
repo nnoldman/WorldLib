@@ -12,29 +12,33 @@ namespace World.Object
         MatchSucess,
         MatchFailed,
     }
-    public class ObjectAttribute : SceneObject
+    public class ObjectAttribute : IBool
     {
         public string kind;
-        public string content;
         public bool canRemove;
+        public string name = "attribute";
 
+        public ObjectAttribute()
+        {
+        }
         public MatchResult Match(ObjectAttribute attr)
         {
             if (this.kind == attr.kind  )
             {
-                return this.content == attr.content ? MatchResult.MatchSucess : MatchResult.MatchFailed;
+                return this.name == attr.name ? MatchResult.MatchSucess : MatchResult.MatchFailed;
             }
             return MatchResult.None;
         }
 
-        public override string GetContent()
+        public  string GetContent()
         {
-            return content;
+            return name;
         }
-        public override string OutPut()
+        public  string OutPut()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(string.Format("=>{0}{1}", name, content));
+            sb.Append(string.Format("=>[{0}]{1}", kind, name));
+            sb.Append(Config.TokenEnter);
             return sb.ToString();
         }
     }

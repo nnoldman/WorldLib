@@ -34,11 +34,18 @@ namespace World.Object
 
         public Myself()
         {
-            var objname = new SceneObjectName();
-            objname.content = Config.TokenMe;
-            objname.canRemove = false;
-            this.attributes.Add(objname);
-
+            {
+                var objname = new SceneObjectName();
+                objname.name = Config.TokenMe;
+                objname.canRemove = false;
+                this.attributes.Add(objname);
+            }
+            {
+                var objname = new SceneObjectName();
+                objname.name = Config.TokenXiaoLi;
+                objname.canRemove = false;
+                this.attributes.Add(objname);
+            }
             var body = new Body();
             body.hp = 1000;
             body.canRemove = false;
@@ -50,8 +57,8 @@ namespace World.Object
             this.attributes.Add(emotion);
 
             var def = new ObjectDefine();
-            def.content = Config.TokenDefineMyself;
-            this.attributes.Add(objname);
+            def.name = Config.TokenDefineMyself;
+            this.attributes.Add(def);
         }
         public void Close()
         {

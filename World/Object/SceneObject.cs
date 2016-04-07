@@ -25,16 +25,30 @@ namespace World.Object
             id = ++CountOfObject;
             Scene.Instance.AddObject(this);
         }
+        public string GetName()
+        {
+            if (!string.IsNullOrEmpty(name))
+                return name;
+            foreach(var attr in attributes)
+            {
+                if(attr is SceneObjectName)
+                {
+                    return attr.name;
+                }
+            }
+            return string.Empty;
+        }
         public virtual string OutPut()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(string.Format("SceneObject({0}):", name));
-            sb.Append("\n");
+            sb.Append(string.Format("SceneObject({0}):", GetName()));
+            sb.Append(Config.TokenEnter + "{" + Config.TokenEnter);
             foreach (var attr in attributes)
             {
                 sb.Append("    ");
                 sb.Append(attr.OutPut());
             }
+            sb.Append("}");
             return sb.ToString();
         }
         public void Execute(string action,string target)
@@ -103,7 +117,7 @@ namespace World.Object
 
                 if (objname)
                 {
-                    if (objname.content == name)
+                    if (objname.name == name)
                     {
                         return true;
                     }
