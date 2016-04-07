@@ -38,6 +38,13 @@ namespace World.Object
             }
             return string.Empty;
         }
+        public string GetReplaceName()
+        {
+            OutReplaceAttribute replace = GetAttributeByType<OutReplaceAttribute>();
+            if (replace)
+                return replace.name;
+            return string.Empty;
+        }
         public virtual string OutPut()
         {
             StringBuilder sb = new StringBuilder();
@@ -144,6 +151,19 @@ namespace World.Object
             }
             return attrs;
         }
+
+        public T GetAttributeByType<T>() where T : ObjectAttribute
+        {
+            foreach (var att in this.attributes)
+            {
+                if (att is T)
+                {
+                    return (T)att;
+                }
+            }
+            return default(T);
+        }
+
         public ObjectDefine GetDefine()
         {
             ObjectDefine def = (ObjectDefine)GetFirstAttribute(Config.TokenDefine);

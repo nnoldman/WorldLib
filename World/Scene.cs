@@ -48,16 +48,28 @@ namespace World
             StringBuilder sb = new StringBuilder();
             foreach(var obj in mObjects)
             {
-                sb.Append("\r\n");
+                sb.Append(Config.TokenEnter);
                 sb.Append(obj.Value.OutPut());
             }
             return sb.ToString();
+
+        }
+        public SceneObject GetObjectByReplace(string name)
+        {
+            foreach (var obj in mObjects)
+            {
+                var att = obj.Value.GetAttributeByType<OutReplaceAttribute>();
+                if (att && att.target == name)
+                    return obj.Value;
+
+            }
+            return null;
         }
         public SceneObject GetObject(string name)
         {
             foreach(var obj in mObjects)
             {
-                if (name == obj.Value.name)
+                if (name == obj.Value.GetName())
                     return obj.Value;
             }
             return null;

@@ -36,12 +36,6 @@ namespace World.Object
         {
             {
                 var objname = new SceneObjectName();
-                objname.name = Config.TokenMe;
-                objname.canRemove = false;
-                this.attributes.Add(objname);
-            }
-            {
-                var objname = new SceneObjectName();
                 objname.name = Config.TokenXiaoLi;
                 objname.canRemove = false;
                 this.attributes.Add(objname);
@@ -59,6 +53,13 @@ namespace World.Object
             var def = new ObjectDefine();
             def.name = Config.TokenDefineMyself;
             this.attributes.Add(def);
+
+            {
+                OutReplaceAttribute attr = new OutReplaceAttribute();
+                attr.name = Config.TokenMe;
+                attr.target = Config.TokenYou;
+                this.attributes.Add(attr);
+            }
         }
         public void Close()
         {
@@ -69,10 +70,10 @@ namespace World.Object
             Option.command.isCommand = text.StartsWith(Config.TokenCommand);
             if(Option.command.isControlling)
             {
-                Phrase_Cmd cmd = new Phrase_Cmd();
+                PhraseCmd cmd = new PhraseCmd();
                 cmd.builder.Append(text.Substring(Config.TokenCommand.Length));
-                if (cmd.Match())
-                    cmd.Growing();
+                //if (cmd.Match())
+                    //cmd.Growing();
                 return;
             }
             Scanner scanner = new Scanner();
@@ -81,8 +82,9 @@ namespace World.Object
             Phrase p = parser.Parse(words);
             if (p)
             {
-                OutPut(p.OutPut());
-                OutPut(Scene.Instance.OutPut());
+                OutPut(p.GenerateAnswer(words));
+                //OutPut(p.OutPut());
+                //OutPut(Scene.Instance.OutPut());
                 //OutPutAll();
                 //OutPut(p.GetFeedback().GetContent());
             }

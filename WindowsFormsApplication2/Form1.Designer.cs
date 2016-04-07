@@ -52,18 +52,17 @@
             // 
             this.splitContainer1.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.splitContainer1.Panel2.Controls.Add(this.textBox2);
-            this.splitContainer1.Size = new System.Drawing.Size(921, 454);
-            this.splitContainer1.SplitterDistance = 353;
+            this.splitContainer1.Size = new System.Drawing.Size(557, 163);
+            this.splitContainer1.SplitterDistance = 126;
             this.splitContainer1.TabIndex = 2;
             // 
             // textBox1
             // 
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(921, 353);
+            this.textBox1.Size = new System.Drawing.Size(557, 126);
             this.textBox1.TabIndex = 2;
             this.textBox1.TabStop = false;
             // 
@@ -74,7 +73,7 @@
             this.textBox2.Location = new System.Drawing.Point(0, 0);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(921, 97);
+            this.textBox2.Size = new System.Drawing.Size(557, 33);
             this.textBox2.TabIndex = 1;
             this.textBox2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.onKeyUp);
             // 
@@ -82,11 +81,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(921, 454);
+            this.ClientSize = new System.Drawing.Size(557, 163);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Activated += new System.EventHandler(this.Form1_Activated);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.onFormKeyUp);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

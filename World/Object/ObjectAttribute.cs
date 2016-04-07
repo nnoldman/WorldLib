@@ -37,7 +37,7 @@ namespace World.Object
         public  string OutPut()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(string.Format("=>[{0}]{1}", kind, name));
+            sb.Append(string.Format("[{0}]{1}", kind, name));
             sb.Append(Config.TokenEnter);
             return sb.ToString();
         }

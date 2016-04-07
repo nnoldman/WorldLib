@@ -15,14 +15,15 @@ namespace World
         public const string TokenEnter = "\r\n";
 
         public const string TokenXiaoLi = "小力";
+        public const string TokenReplace = "替代";
 
         public const string TokenUnknown = "??";
         public const string TokenTrue = "是";
         public const string TokenFalse = "不";
         public const string TokenSpace = " ";
         public const string TokenName = "名称";
-        public const string TokenMe = "你";
-        public const string TokenYou = "我";
+        public const string TokenMe = "我";
+        public const string TokenYou = "你";
         public const string TokenOwnership = "所属";
         public const string TokenInnate = "与生俱来";
         public const string TokenMood = "头脑";

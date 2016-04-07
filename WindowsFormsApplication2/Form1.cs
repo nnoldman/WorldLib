@@ -41,5 +41,13 @@ namespace WindowsFormsApplication2
         {
             this.textBox2.Focus();
         }
+
+        private void onFormKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Application.Exit();
+            }
+        }
     }
 }

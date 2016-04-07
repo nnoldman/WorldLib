@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using World.Object;
-using World.Processor.Action;
 
 namespace World.Processor
 {
@@ -15,6 +14,5 @@ namespace World.Processor
     {
         public SceneObject executer;
         public SceneObject target;
-        public ACT action;
     }
 }

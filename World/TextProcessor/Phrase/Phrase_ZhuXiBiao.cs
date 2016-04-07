@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using World.Object;
-using World.Processor.Action;
 
 namespace World.Processor
 {
-    [PhraseElement(wordType = Config.TokenNoun)]
-    [PhraseElement(wordType = Config.TokenCopula)]
+    public class PhraseCmd : Phrase
+    {
+    }
     [PhraseElement(wordType = Config.TokenUnknown)]
+    [PhraseElement(wordType = Config.TokenCopula)]
     [PhraseName(Name = Config.TokenPhrase_Cmd)]
-    public class Phrase_Cmd : Phrase
+    public class Phrase_AddWord : PhraseCmd
     {
         public void Growing()
         {
@@ -38,7 +39,14 @@ namespace World.Processor
     [PhraseName(Name = Config.TokenPhrase_ZhuXiBiaoQuery)]
     public class Phrase_ZhuXiBiao_YiWen : Phrase
     {
-
+        public override string GenerateAnswer(List<Word> words)
+        {
+            Nervous.Linker.Clear();
+            Nervous.Linker.Invoke(Nervous.Linker.AddObjectByReplace, words, 0);
+            Nervous.Linker.Invoke(Nervous.Linker.SetAction, words, 1);
+            Nervous.Linker.Invoke(Nervous.Linker.LinkObjectName, words, 0);
+            return Nervous.Linker.GetText(); 
+        }
         public override Feedback GetFeedback()
         {
             SceneObject obj = Scene.Instance.GetObject(mWordRoot.word.content);

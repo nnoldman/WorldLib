@@ -56,6 +56,10 @@ namespace World.Processor
         {
             return null;
         }
+        public virtual string GenerateAnswer(List<Word> words)
+        {
+            throw new Exception();
+        }
         public bool Match(List<Word> words)
         {
             if (words.Count != elements.Count)
