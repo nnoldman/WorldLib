@@ -43,7 +43,7 @@ namespace World
         {
             mObjects.Remove(obj.id);
         }
-        public string OutPut()
+        public string OutPutObjects()
         {
             StringBuilder sb = new StringBuilder();
             foreach(var obj in mObjects)
@@ -52,7 +52,21 @@ namespace World
                 sb.Append(obj.Value.OutPut());
             }
             return sb.ToString();
-
+        }
+        public string OutPutUnknown()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var obj in StoreWord.getStore)
+            {
+                if(!obj.Value.IsKnown())
+                {
+                    sb.Append(obj.Value.content);
+                    sb.Append(Config.TokenBe);
+                    sb.Append(Config.TokenWhat);
+                    break;
+                }
+            }
+            return sb.ToString();
         }
         public SceneObject GetObjectByReplace(string name)
         {

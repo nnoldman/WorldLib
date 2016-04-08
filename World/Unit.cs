@@ -54,14 +54,6 @@ namespace Nervous
             mParams.Add(param);
             p(words[wordIndex]);
         }
-        public static void CmdAddWordType(Word w)
-        {
-
-        }
-        public static void CmdAddAttribute(Word w)
-        {
-
-        }
         public static void LinkWord(Word w)
         {
             mCurText.Append(w.content);

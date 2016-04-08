@@ -28,12 +28,11 @@ namespace World
         public const string TokenInnate = "与生俱来";
         public const string TokenMood = "头脑";
         public const string TokenBody = "身体";
-        public const string TokenBe1 = "是";
-        public const string TokenBe2 = "是";
-        public const string TokenBe3 = "是";
+        public const string TokenBe = "是";
         public const string TokenDefineMyself = "类人";
         public const string TokenDefine = "定义";
         public const string TokenWho = "谁";
+        public const string TokenWhat = "什么";
 
         public const string TokenWordType = "词型";
 

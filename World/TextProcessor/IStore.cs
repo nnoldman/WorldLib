@@ -26,8 +26,10 @@ namespace World.TextProcessor
             mStore.TryGetValue(key, out tv);
             return tv;
         }
-
-
+        public static void Remove(TKey key)
+        {
+            mStore.Remove(key);
+        }
     }
     public class StoreWordType : IStore<string, WordType>
     {

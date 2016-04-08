@@ -13,6 +13,8 @@ namespace WindowsFormsApplication2
 {
     public partial class Form1 : Form
     {
+        List<string> mLastContents = new List<string>();
+        int mCurIndex = 0;
         public Form1()
         {
             InitializeComponent();
@@ -34,6 +36,35 @@ namespace WindowsFormsApplication2
                     return;
                 Myself.Instance.Input(content.Trim('\r', '\n'));
                 this.textBox2.Clear();
+
+                if (
+                    (mLastContents.Count > 0 && mLastContents[mLastContents.Count - 1] != content)
+                    || (mLastContents.Count == 0)
+                    )
+                {
+                    mLastContents.Add(content);
+                    mCurIndex = mLastContents.Count;
+                }
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                if (mLastContents.Count > 0)
+                {
+                    mCurIndex--;
+                    if (mCurIndex < 0)
+                        mCurIndex = mLastContents.Count + mCurIndex;
+                    this.textBox2.Text = mLastContents[mCurIndex];
+                }
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                if (mLastContents.Count > 0)
+                {
+                    mCurIndex++;
+                    if (mCurIndex >= mLastContents.Count)
+                        mCurIndex = mCurIndex - mLastContents.Count;
+                    this.textBox2.Text = mLastContents[mCurIndex];
+                }
             }
         }
 

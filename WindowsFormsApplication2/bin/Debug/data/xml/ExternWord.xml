@@ -50,4 +50,10 @@
       <wordTypesItem typeName="--" functionName="Relative" />
     </wordTypes>
   </record>
+  <record content="哪里" id="11">
+    <wordTypes />
+  </record>
+  <record content="代" id="12">
+    <wordTypes />
+  </record>
 </root>

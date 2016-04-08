@@ -98,7 +98,7 @@ namespace World
             }
             {
                 Word w = new Word();
-                w.content = Config.TokenBe1;
+                w.content = Config.TokenBe;
                 WordTypeFunction tf = new WordTypeFunction();
                 tf.typeName = Config.TokenCopula;
                 tf.functionName = "Is";

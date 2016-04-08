@@ -25,7 +25,24 @@ namespace World.TextProcessor
         public override void ExecuteCmd(List<Word> words)
         {
             WordType wt = new WordType();
-            wt.name = words[1].content+ Config.TokenSingletonWord;
+            wt.name = words[1].content + Config.TokenSingletonWord;
+            wt.parent = words[4].content;
+            StoreWordType.Add(wt.name, wt);
+        }
+    }
+
+    [PhraseElement(wordType = Config.TokenCommand)]
+    [PhraseElement(wordType = Config.TokenUnknown)]
+    [PhraseElement(wordType = Config.TokenWordType)]
+    [PhraseElement(wordType = Config.TokenCopula)]
+    [PhraseElement(wordType = Config.TokenWordType)]
+    [PhraseName(Name = Config.TokenPhrase_Cmd)]
+    public class Phrase_AddWordType1 : PhraseCmd
+    {
+        public override void ExecuteCmd(List<Word> words)
+        {
+            WordType wt = new WordType();
+            wt.name = words[1].content + Config.TokenSingletonWord;
             wt.parent = words[4].content;
             StoreWordType.Add(wt.name, wt);
         }
@@ -34,9 +51,24 @@ namespace World.TextProcessor
     [PhraseElement(wordType = Config.TokenCommand)]
     [PhraseElement(wordType = Config.TokenUnknown)]
     [PhraseElement(wordType = Config.TokenCopula)]
+    [PhraseElement(wordType = Config.TokenWordType)]
     [PhraseName(Name = Config.TokenWordType)]
     public class Phrase_AddWord : PhraseCmd
     {
+        public override void ExecuteCmd(List<Word> words)
+        {
+            string content= words[0].content;
+            List<WordTypeFunction> typeFunctions = new List<WordTypeFunction>();
+            Word w = StoreWord.Get(content);
+            if (w)
+                typeFunctions = w.typeFunctions;
+            StoreWord.Remove(content);
+            Word newword = new Word();
+            newword.content = content;
+            WordTypeFunction wtf = new WordTypeFunction();
+            wtf.typeName = words[3].content;
+            StoreWord.Add(content, newword);
+        }
     }
 
     [PhraseElement(wordType = Config.TokenNoun)]
@@ -67,6 +99,13 @@ namespace World.TextProcessor
     [PhraseElement(wordType = Config.TokenVerb)]
     [PhraseElement(wordType = Config.TokenNoun)]
     public class Phrase_ZhuWeiBing : Phrase
+    {
+    }
+
+    [PhraseElement(wordType = Config.TokenUnknown)]
+    [PhraseElement(wordType = Config.TokenCopula)]
+    [PhraseElement(wordType = Config.TokenNoun)]
+    public class Phrase_Define : Phrase
     {
     }
 }

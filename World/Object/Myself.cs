@@ -78,10 +78,12 @@ namespace World.Object
                     p.ExecuteCmd(words);
                 else
                     OutPut(p.GenerateAnswer(words));
-                //OutPut(p.OutPut());
-                //OutPut(Scene.Instance.OutPut());
-                //OutPutAll();
-                //OutPut(p.GetFeedback().GetContent());
+            }
+            else
+            {
+                //OutPut(Scene.Instance.OutPutObjects());
+                OutPut(Scene.Instance.OutPutUnknown());
+                //Scene.Instance.OutPut();
             }
         }
         public void Save()
@@ -90,7 +92,7 @@ namespace World.Object
         }
         void OutPutAll()
         {
-            Scene.Instance.OutPut();
+            Scene.Instance.OutPutObjects();
         }
         public void OutPut(string text)
         {
