@@ -52,10 +52,6 @@ namespace World.Processor
                 }
             }
         }
-        public virtual Feedback GetFeedback()
-        {
-            return null;
-        }
         public virtual string GenerateAnswer(List<Word> words)
         {
             throw new Exception();

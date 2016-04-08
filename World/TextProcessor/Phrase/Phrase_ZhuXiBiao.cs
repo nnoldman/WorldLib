@@ -17,9 +17,7 @@ namespace World.Processor
     {
         public void Growing()
         {
-            SceneObject obj = Scene.Instance.GetObject(mWordRoot.word.content);
-            Feedback_Description desc = new Feedback_Description();
-            desc.executer = obj;
+
         }
     }
 
@@ -30,8 +28,6 @@ namespace World.Processor
     [PhraseName(Name = Config.TokenPhrase_ZhuXiBiao)]
     public class Phrase_ZhuXiBiao : Phrase
     {
-        public SceneObject executer;
-        public SceneObject target;
     }
     [PhraseElement(wordType = Config.TokenNoun)]
     [PhraseElement(wordType = Config.TokenCopula)]
@@ -42,17 +38,10 @@ namespace World.Processor
         public override string GenerateAnswer(List<Word> words)
         {
             Nervous.Linker.Clear();
-            Nervous.Linker.Invoke(Nervous.Linker.AddObjectByReplace, words, 0);
-            Nervous.Linker.Invoke(Nervous.Linker.SetAction, words, 1);
+            Nervous.Linker.Invoke(Nervous.Linker.LinkObjectByReplace, words, 0);
+            Nervous.Linker.Invoke(Nervous.Linker.LinkAction, words, 1);
             Nervous.Linker.Invoke(Nervous.Linker.LinkObjectName, words, 0);
             return Nervous.Linker.GetText(); 
-        }
-        public override Feedback GetFeedback()
-        {
-            SceneObject obj = Scene.Instance.GetObject(mWordRoot.word.content);
-            Feedback_Description desc = new Feedback_Description();
-            desc.executer = obj;
-            return desc;
         }
     }
 }

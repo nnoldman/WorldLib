@@ -46,7 +46,6 @@
     <Compile Include="ExternWordType.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="IBool.cs" />
-    <Compile Include="InnerPhrase\SequenceWord.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Object\AttributeRestrain.cs" />
     <Compile Include="Object\Body.cs" />
@@ -72,10 +71,6 @@
     <Compile Include="Object\SceneThing.cs" />
     <Compile Include="Object\SceneTime.cs" />
     <Compile Include="TextProcessor\Decider.cs" />
-    <Compile Include="TextProcessor\Feedback.cs" />
-    <Compile Include="TextProcessor\Feedback_Ask.cs" />
-    <Compile Include="TextProcessor\Feedback_Description.cs" />
-    <Compile Include="TextProcessor\Feedback_Impertive.cs" />
     <Compile Include="TextProcessor\Phrase\Phrase.cs" />
     <Compile Include="TextProcessor\Phrase\Phrase_ZhuWeiBing.cs" />
     <Compile Include="TextProcessor\Phrase\Phrase_ZhuXiBiao.cs" />
@@ -98,12 +93,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ExternWord.cs" />
     <Compile Include="Unit.cs" />
-    <Compile Include="Word\FunctionFinder.cs" />
-    <Compile Include="Word\FeedbackWordFunction.cs" />
-    <Compile Include="Word\GetQuery.cs" />
-    <Compile Include="Word\GetHowMany.cs" />
-    <Compile Include="Word\GetHowMuch.cs" />
-    <Compile Include="Word\GetWhat.cs" />
     <Compile Include="Word\Neuron.cs" />
     <Compile Include="Word\WordCrator.cs" />
     <Compile Include="Word\WordFunction.cs" />

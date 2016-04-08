@@ -32,7 +32,7 @@ namespace Nervous
     public class Linker
     {
 
-        static List<LinkerParam> mCurrentPluses = new List<LinkerParam>();
+        static List<LinkerParam> mParams = new List<LinkerParam>();
         static StringBuilder mCurText = new StringBuilder();
 
         public static string GetText()
@@ -43,7 +43,7 @@ namespace Nervous
         public static void Clear()
         {
             mCurText.Clear();
-            mCurrentPluses.Clear();
+            mParams.Clear();
         }
 
         public static void Invoke(Action<Word> p, List<Word> words, int wordIndex)
@@ -51,14 +51,14 @@ namespace Nervous
             LinkerParam param = new LinkerParam();
             param.action = p.Method.Name;
             param.wordIndex = wordIndex;
-            mCurrentPluses.Add(param);
+            mParams.Add(param);
             p(words[wordIndex]);
         }
-        public static void SetAction(Word w)
+        public static void LinkAction(Word w)
         {
             mCurText.Append(w.content);
         }
-        public static void AddObjectByReplace(Word w)
+        public static void LinkObjectByReplace(Word w)
         {
             SceneObject obj = Scene.Instance.GetObjectByReplace(w.content);
             if(obj)

@@ -74,17 +74,7 @@ namespace World
             }
             return null;
         }
-        public void Parse(List<Phrase> phrases)
-        {
-            foreach (var p in phrases)
-            {
-                Feedback fd = p.GetFeedback();
-                if (fd)
-                {
-                    Myself.Instance.OutPut(fd.GetContent());
-                }
-            }
-        }
+        
         public void Load()
         {
 
