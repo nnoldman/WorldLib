@@ -266,7 +266,8 @@ namespace World
                     if (attrs != null)
                     {
                         phrase.name = ((PhraseName)attrs).Name;
-                        StorePhrase.Add(phrase.name, phrase);
+
+                        StorePhrase.Add((StorePhrase.getStore.Count + 1).ToString(), phrase);
                     }
                 }
             }

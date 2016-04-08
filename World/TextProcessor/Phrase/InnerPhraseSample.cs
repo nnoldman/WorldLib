@@ -57,17 +57,9 @@ namespace World.TextProcessor
     {
         public override void ExecuteCmd(List<Word> words)
         {
-            string content= words[0].content;
-            List<WordTypeFunction> typeFunctions = new List<WordTypeFunction>();
-            Word w = StoreWord.Get(content);
-            if (w)
-                typeFunctions = w.typeFunctions;
-            StoreWord.Remove(content);
-            Word newword = new Word();
-            newword.content = content;
-            WordTypeFunction wtf = new WordTypeFunction();
-            wtf.typeName = words[3].content;
-            StoreWord.Add(content, newword);
+            Nervous.Linker.Clear();
+            Nervous.Linker.Invoke(Nervous.Linker.CacheOldWord, words, 1);
+            Nervous.Linker.Invoke(Nervous.Linker.AddWordWithCache, words, 3);
         }
     }
 

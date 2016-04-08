@@ -31,9 +31,9 @@ namespace Nervous
     }
     public class Linker
     {
-
         static List<LinkerParam> mParams = new List<LinkerParam>();
         static StringBuilder mCurText = new StringBuilder();
+        static Word mCacheWord = null;
 
         public static string GetText()
         {
@@ -44,6 +44,7 @@ namespace Nervous
         {
             mCurText.Clear();
             mParams.Clear();
+            mCacheWord = null;
         }
 
         public static void Invoke(Action<Word> p, List<Word> words, int wordIndex)
@@ -68,6 +69,22 @@ namespace Nervous
             }
         }
 
+        public static void CacheOldWord(Word w)
+        {
+            mCacheWord = w;
+            StoreWord.Remove(w.content);
+        }
+        public static void AddWordWithCache(Word w)
+        {
+            Word newword = new Word();
+            newword.content = w.content;
+            WordTypeFunction wtf = new WordTypeFunction();
+            wtf.typeName = w.content;
+            newword.typeFunctions = new List<WordTypeFunction>();
+            newword.typeFunctions.AddRange(mCacheWord.typeFunctions);
+            newword.typeFunctions.Add(wtf);
+            StoreWord.Add(newword.content, newword);
+        }
         public static void LinkObjectName(Word w)
         {
             SceneObject obj = Scene.Instance.GetObjectByReplace(w.content);

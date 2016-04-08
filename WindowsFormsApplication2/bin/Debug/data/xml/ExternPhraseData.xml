@@ -1,45 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <record elements="--;??;词;系动词;词型" name="cmd" id="1" />
-  <record elements="--;??;系动词;词型" name="词型" id="2" />
-  <record elements="名词;系动词;代词;？" name="主系表" id="3" />
-  <record elements="名词;系动词;疑问代词" name="疑问主系表" id="4" />
-  <record elements="--;??;词;系动词;词型" name="" id="5" />
-  <record elements="--;??;系动词;词型" name="" id="6" />
-  <record elements="名词;系动词;代词;？" name="" id="7" />
-  <record elements="名词;系动词;疑问代词" name="" id="8" />
-  <record elements="--;??;词;系动词;词型" name="" id="9" />
-  <record elements="--;??;系动词;词型" name="" id="10" />
-  <record elements="名词;系动词;代词;？" name="" id="11" />
-  <record elements="名词;系动词;疑问代词" name="" id="12" />
-  <record elements="--;??;词;系动词;词型" name="" id="13" />
-  <record elements="--;??;系动词" name="" id="14" />
-  <record elements="名词;系动词;代词;？" name="" id="15" />
-  <record elements="名词;系动词;疑问代词" name="" id="16" />
-  <record elements="--;??;词;系动词;词型" name="" id="17" />
-  <record elements="--;??;系动词" name="" id="18" />
-  <record elements="名词;系动词;代词;？" name="" id="19" />
-  <record elements="名词;系动词;疑问代词" name="" id="20" />
-  <record elements="--;??;词;系动词;词型" name="" id="21" />
-  <record elements="--;??;系动词" name="" id="22" />
-  <record elements="名词;系动词;代词;？" name="" id="23" />
-  <record elements="名词;系动词;疑问代词" name="" id="24" />
-  <record elements="--;??;词;系动词;词型" name="" id="25" />
-  <record elements="--;??;系动词" name="" id="26" />
-  <record elements="名词;系动词;代词;？" name="" id="27" />
-  <record elements="名词;系动词;疑问代词" name="" id="28" />
-  <record elements="--;??;词;系动词;词型" name="" id="29" />
-  <record elements="--;??;系动词" name="" id="30" />
-  <record elements="名词;系动词;代词;？" name="" id="31" />
-  <record elements="名词;系动词;疑问代词" name="" id="32" />
-  <record elements="--;??;词;系动词;词型" name="" id="33" />
-  <record elements="--;??;系动词" name="" id="34" />
-  <record elements="名词;系动词;代词;？" name="" id="35" />
-  <record elements="名词;系动词;疑问代词" name="" id="36" />
-  <record elements="--;??;词;系动词;词型" name="" id="37" />
-  <record elements="--;??;系动词" name="" id="38" />
-  <record elements="名词;系动词;代词;？" name="" id="39" />
-  <record elements="名词;系动词;疑问代词" name="" id="40" />
-  <record elements="代词;系动词;未知" name="" id="41" />
-  <record elements="代词;系动词;名词" name="" id="42" />
+  <record elements="--;??;词型;系动词;词型" name="cmd" id="2" />
+  <record elements="--;??;系动词;词型" name="词型" id="3" />
+  <record elements="名词;系动词;代词;？" name="主系表" id="4" />
+  <record elements="名词;系动词;疑问代词" name="疑问主系表" id="5" />
 </root>

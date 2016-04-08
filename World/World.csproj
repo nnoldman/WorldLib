@@ -45,6 +45,8 @@
     <Compile Include="ExternPhraseData.cs" />
     <Compile Include="ExternWordType.cs" />
     <Compile Include="IBool.cs" />
+    <Compile Include="Input.cs" />
+    <Compile Include="LinkerComponent.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Object\AttributeRestrain.cs" />
     <Compile Include="Object\Body.cs" />
