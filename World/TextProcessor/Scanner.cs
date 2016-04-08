@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using World.Object;
 
-namespace World.Processor
+namespace World.TextProcessor
 {
     public class TempWord : IBool
     {
@@ -83,10 +83,12 @@ namespace World.Processor
                     if (i < tw.start)
                     {
                         TempWord newtw = new TempWord();
-                        newtw.word = StoreWord.MakeUnknownWord(mText.Substring(i, tw.start - 1));
+                        newtw.word = StoreWord.MakeUnknownWord(mText.Substring(i, tw.start - i));
                         newtw.start = i;
-                        newtw.end = tw.start - 1;
+                        newtw.end = tw.start;
                         unknownword.Add(newtw);
+                        i = tw.end;
+                        tempWordIndex++;
                     }
                     else
                     {

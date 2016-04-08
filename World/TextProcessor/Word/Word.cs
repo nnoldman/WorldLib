@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace World.Processor
+namespace World.TextProcessor
 {
     public class WordTypeFunction
     {
@@ -22,6 +22,8 @@ namespace World.Processor
         }
         public bool IsType(string wordTypeName)
         {
+            if (wordTypeName == Config.TokenUnknown)
+                return true;
             foreach (var wt in typeFunctions)
             {
                 WordType typefuncType = StoreWordType.Get(wt.typeName);

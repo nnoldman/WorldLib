@@ -130,11 +130,9 @@ public class AResource
 
     public static void SaveNode(XmlElement node, string propName, XmlDocument doc, object obj)
     {
-
-       
         string res = Converter.GetString(obj.GetType(), obj);
-        
-        if (res.Length > 0)
+
+        if (res != null)
         {
             node.SetAttribute(propName, res);
         }
@@ -158,7 +156,7 @@ public class AResource
 
                     object item = propinfo.GetValue(obj, args);
                     string itemstr = Converter.GetString(item.GetType(), item);
-                    if (itemstr.Length > 0)
+                    if (itemstr != null)
                     {
                         liststr.Append(itemstr);
                         liststr.Append(Token.ListKey);

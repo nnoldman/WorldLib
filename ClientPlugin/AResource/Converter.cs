@@ -24,7 +24,7 @@ namespace GameData
                     {
                         Type convertype = ((ConverterAttribute)attr).converType;
                         MethodInfo getValueFunc = tp.GetMethod("GetValue");
-                        MethodInfo getStringFunc = tp.GetMethod("GetStirng");
+                        MethodInfo getStringFunc = tp.GetMethod("GetString");
                         mValueParsers.Add(convertype, getValueFunc);
                         mStringParsers.Add(convertype, getStringFunc);
                     }
@@ -88,7 +88,7 @@ namespace GameData
                 //Log.Info("GetString.Invoke : =>" + parser.Name);
                 return (string)parser.Invoke(null, paras);
             }
-            return string.Empty;
+            return null;
         }
 
     }

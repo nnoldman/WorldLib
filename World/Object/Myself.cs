@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using World.Processor;
+using World.TextProcessor;
 
 namespace World.Object
 {
@@ -68,26 +68,25 @@ namespace World.Object
         public void Input(string text)
         {
             Option.command.isCommand = text.StartsWith(Config.TokenCommand);
-            if(Option.command.isControlling)
-            {
-                PhraseCmd cmd = new PhraseCmd();
-                cmd.builder.Append(text.Substring(Config.TokenCommand.Length));
-                //if (cmd.Match())
-                    //cmd.Growing();
-                return;
-            }
             Scanner scanner = new Scanner();
             var words = scanner.Scan(text);
             Parser parser = new Parser();
             Phrase p = parser.Parse(words);
             if (p)
             {
-                OutPut(p.GenerateAnswer(words));
+                if (p.IsCmd())
+                    p.ExecuteCmd(words);
+                else
+                    OutPut(p.GenerateAnswer(words));
                 //OutPut(p.OutPut());
                 //OutPut(Scene.Instance.OutPut());
                 //OutPutAll();
                 //OutPut(p.GetFeedback().GetContent());
             }
+        }
+        public void Save()
+        {
+            DataCenter.Save();
         }
         void OutPutAll()
         {

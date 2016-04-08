@@ -164,7 +164,7 @@ namespace World.Object
             return default(T);
         }
 
-        public ObjectDefine GetDefine()
+        public override ObjectDefine GetDefine()
         {
             ObjectDefine def = (ObjectDefine)GetFirstAttribute(Config.TokenDefine);
             return def;

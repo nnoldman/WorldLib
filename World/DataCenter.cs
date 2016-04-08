@@ -1,11 +1,12 @@
-﻿using System;
+﻿using GameData;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using World.Processor;
+using World.TextProcessor;
 
 namespace World
 {
@@ -32,6 +33,57 @@ namespace World
             InitInnerPhrases();
             InitExternPhrases();
         }
+
+        public static void Save()
+        {
+            {
+                GameData.ExternWord.dataMap.Clear();
+                int index = 0;
+                foreach (var d in StoreWord.getStore)
+                {
+                    ExternWord ew = new ExternWord();
+                    ew.id = ++index;
+                    ew.content = d.Value.content;
+                    ew.wordTypes.AddRange(d.Value.typeFunctions);
+                    GameData.ExternWord.dataMap.Add(ew.id, ew);
+                }
+
+                GameData.ExternWord.SaveGameData();
+            }
+
+
+            {
+                GameData.ExternWordType.dataMap.Clear();
+                int index = 0;
+                foreach (var d in StoreWordType.getStore)
+                {
+                    ExternWordType ewt = new ExternWordType();
+                    ewt.id = ++index;
+                    ewt.name = d.Value.name;
+                    ewt.parent = d.Value.parent;
+                    GameData.ExternWordType.dataMap.Add(ewt.id, ewt);
+                }
+
+                GameData.ExternWordType.SaveGameData();
+            }
+
+            {
+                GameData.ExternPhraseData.dataMap.Clear();
+                int index = 0;
+                foreach (var d in StorePhrase.getStore)
+                {
+                    ExternPhraseData ewt = new ExternPhraseData();
+                    ewt.id = ++index;
+                    ewt.name = d.Value.name;
+                    ewt.elements = new List<string>();
+                    d.Value.elements.ForEach((item) => ewt.elements.Add(item.wordType));
+                    GameData.ExternPhraseData.dataMap.Add(ewt.id, ewt);
+                }
+
+                GameData.ExternPhraseData.SaveGameData();
+            }
+        }
+
         static void InitInnerWords()
         {
             {
@@ -75,6 +127,73 @@ namespace World
 
                 StoreWord.Add(w.content, w);
             }
+
+            {
+                Word w = new Word();
+                w.content = Config.TokenSingletonWord;
+                WordTypeFunction tf = new WordTypeFunction();
+                tf.typeName = Config.TokenSingletonWord;
+                tf.functionName = "Relative";
+                w.typeFunctions.Add(tf);
+
+                StoreWord.Add(w.content, w);
+            }
+
+
+            {
+                Word w = new Word();
+                w.content = Config.TokenNoun;
+                WordTypeFunction tf = new WordTypeFunction();
+                tf.typeName = Config.TokenWordType;
+                tf.functionName = "Relative";
+                w.typeFunctions.Add(tf);
+
+                StoreWord.Add(w.content, w);
+            }
+
+            {
+                Word w = new Word();
+                w.content = Config.TokenVerb;
+                WordTypeFunction tf = new WordTypeFunction();
+                tf.typeName = Config.TokenWordType;
+                tf.functionName = "Relative";
+                w.typeFunctions.Add(tf);
+
+                StoreWord.Add(w.content, w);
+            }
+
+            {
+                Word w = new Word();
+                w.content = Config.TokenCopula;
+                WordTypeFunction tf = new WordTypeFunction();
+                tf.typeName = Config.TokenWordType;
+                tf.functionName = "Relative";
+                w.typeFunctions.Add(tf);
+
+                StoreWord.Add(w.content, w);
+            }
+
+            {
+                Word w = new Word();
+                w.content = Config.TokenAux;
+                WordTypeFunction tf = new WordTypeFunction();
+                tf.typeName = Config.TokenWordType;
+                tf.functionName = "Relative";
+                w.typeFunctions.Add(tf);
+
+                StoreWord.Add(w.content, w);
+            }
+
+            {
+                Word w = new Word();
+                w.content = Config.TokenCommand;
+                WordTypeFunction tf = new WordTypeFunction();
+                tf.typeName = Config.TokenCommand;
+                tf.functionName = "Relative";
+                w.typeFunctions.Add(tf);
+
+                StoreWord.Add(w.content, w);
+            }
         }
         static void InitExternWords()
         {
@@ -83,7 +202,14 @@ namespace World
                 Word wrod = new Word();
                 wrod.content = d.Value.content;
                 wrod.typeFunctions.AddRange(d.Value.wordTypes);
-                StoreWord.Add(wrod.content, wrod);
+                try
+                {
+                    StoreWord.Add(wrod.content, wrod);
+                }
+                catch
+                {
+
+                }
             }
         }
         static void InitInnerWordTypes()
@@ -114,7 +240,15 @@ namespace World
             {
                 WordType wt = new WordType();
                 wt.name = d.Value.name;
-                StoreWordType.Add(wt.name, wt);
+                wt.parent = d.Value.parent;
+                try
+                {
+                    StoreWordType.Add(wt.name, wt);
+                }
+                catch
+                {
+
+                }
             }
         }
         static void InitInnerPhrases()
@@ -144,8 +278,16 @@ namespace World
             {
                 ExternPhrase phrase = new ExternPhrase();
                 phrase.Init(d.Value);
-                StorePhrase.Add(d.Key.ToString(), phrase);
+                try
+                {
+                    StorePhrase.Add(d.Key.ToString(), phrase);
+                }
+                catch
+                {
+
+                }
             }
+
         }
 
         public static string LoadFile(string file)

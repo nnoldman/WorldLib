@@ -35,6 +35,10 @@ namespace World
         public const string TokenDefine = "定义";
         public const string TokenWho = "谁";
 
+        public const string TokenWordType = "词型";
+
+        public const string TokenSingletonWord = "词";
+
         public const string TokenNoun = "名词";
         public const string TokenPronoun = "代词";
         public const string TokenQueryPronoun = "疑问代词";
@@ -45,6 +49,7 @@ namespace World
         public const string TokenPreposition = "介词";
         public const string TokenAdverb = "副词";
         public const string TokenNumber = "量词";
+        public const string TokenAux = "助词";
         public const string TokenHas = "有";
         public const string TokenEverything = "--";
         public const string TokenCommand = "--";

@@ -1,5 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <record id="1" elements="代词;系动词;未知" />
-  <record id="2" elements="代词;系动词;名词" />
+  <record elements="--;??;词;系动词;词型" name="cmd" id="1" />
+  <record elements="--;??;系动词" name="词型" id="2" />
+  <record elements="名词;系动词;代词;？" name="主系表" id="3" />
+  <record elements="名词;系动词;疑问代词" name="疑问主系表" id="4" />
+  <record elements="--;??;词;系动词;词型" name="" id="5" />
+  <record elements="--;??;系动词" name="" id="6" />
+  <record elements="名词;系动词;代词;？" name="" id="7" />
+  <record elements="名词;系动词;疑问代词" name="" id="8" />
+  <record elements="--;??;词;系动词;词型" name="" id="9" />
+  <record elements="--;??;系动词" name="" id="10" />
+  <record elements="名词;系动词;代词;？" name="" id="11" />
+  <record elements="名词;系动词;疑问代词" name="" id="12" />
+  <record elements="代词;系动词;未知" name="" id="13" />
+  <record elements="代词;系动词;名词" name="" id="14" />
 </root>

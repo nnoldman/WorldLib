@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System;
-using World.Processor;
+using World.TextProcessor;
 using World;
 using World.Object;
 using System.Text;
@@ -54,7 +54,15 @@ namespace Nervous
             mParams.Add(param);
             p(words[wordIndex]);
         }
-        public static void LinkAction(Word w)
+        public static void CmdAddWordType(Word w)
+        {
+
+        }
+        public static void CmdAddAttribute(Word w)
+        {
+
+        }
+        public static void LinkWord(Word w)
         {
             mCurText.Append(w.content);
         }

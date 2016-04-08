@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using World.Processor;
+using World.TextProcessor;
 
 namespace GameData
 {
@@ -11,5 +11,6 @@ namespace GameData
     {
         static public readonly string fileName = "xml/ExternPhraseData";
         public List<string> elements;
+        public string name;
     }
 }

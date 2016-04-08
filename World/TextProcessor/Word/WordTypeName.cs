@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace World.Processor
+namespace World.TextProcessor
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
     public  class WordTypeName : Attribute

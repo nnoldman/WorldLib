@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace World.Processor
+namespace World.TextProcessor
 {
     public class Phrase : IBool
     {
@@ -14,10 +14,19 @@ namespace World.Processor
         public Word root = new Word();
 
         protected SequenceWord mWordRoot;
+
+        public virtual bool IsCmd()
+        {
+            return false;
+        }
+        public virtual void ExecuteCmd(List<Word> words)
+        {
+
+        }
         /// <summary>
         /// 构件
         /// </summary>
-        List<PhraseElement> elements
+        public List<PhraseElement> elements
         {
             get
             {

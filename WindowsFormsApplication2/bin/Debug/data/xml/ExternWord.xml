@@ -1,4 +1,53 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <record id="1"  content="食物" function="20" wordTypes="名词;"/>
+  <record content="你" id="1">
+    <wordTypes>
+      <wordTypesItem typeName="代词" functionName="Relative" />
+    </wordTypes>
+  </record>
+  <record content="是" id="2">
+    <wordTypes>
+      <wordTypesItem typeName="系动词" functionName="Is" />
+    </wordTypes>
+  </record>
+  <record content="我" id="3">
+    <wordTypes>
+      <wordTypesItem typeName="代词" functionName="Relative" />
+    </wordTypes>
+  </record>
+  <record content="谁" id="4">
+    <wordTypes>
+      <wordTypesItem typeName="疑问代词" functionName="Relative" />
+    </wordTypes>
+  </record>
+  <record content="词" id="5">
+    <wordTypes>
+      <wordTypesItem typeName="词" functionName="Relative" />
+    </wordTypes>
+  </record>
+  <record content="名词" id="6">
+    <wordTypes>
+      <wordTypesItem typeName="词型" functionName="Relative" />
+    </wordTypes>
+  </record>
+  <record content="动词" id="7">
+    <wordTypes>
+      <wordTypesItem typeName="词型" functionName="Relative" />
+    </wordTypes>
+  </record>
+  <record content="系动词" id="8">
+    <wordTypes>
+      <wordTypesItem typeName="词型" functionName="Relative" />
+    </wordTypes>
+  </record>
+  <record content="助词" id="9">
+    <wordTypes>
+      <wordTypesItem typeName="词型" functionName="Relative" />
+    </wordTypes>
+  </record>
+  <record content="--" id="10">
+    <wordTypes>
+      <wordTypesItem typeName="--" functionName="Relative" />
+    </wordTypes>
+  </record>
 </root>

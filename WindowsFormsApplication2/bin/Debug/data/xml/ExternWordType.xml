@@ -1,4 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <record id="1"  name="动名词" function="xx" />
+  <record name="--" id="1" />
+  <record name="词" parent="名词" id="2" />
+  <record name="词型" parent="名词" id="3" />
+  <record name="代词" parent="名词" id="4" />
+  <record name="疑问代词" parent="代词" id="5" />
+  <record name="形容词" id="6" />
+  <record name="副词" id="7" />
+  <record name="名词" id="8" />
+  <record name="量词" id="9" />
+  <record name="介词" id="10" />
+  <record name="动词" id="11" />
+  <record name="系动词" parent="动词" id="12" />
+  <record name="被动词" parent="动词" id="13" />
+  <record name="动名词" id="14" />
 </root>

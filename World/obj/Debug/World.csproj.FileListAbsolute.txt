@@ -5,3 +5,10 @@ H:\WorldLib\World\bin\Debug\ClientPlugins.dll
 H:\WorldLib\World\bin\Debug\ClientPlugins.pdb
 H:\WorldLib\World\obj\Debug\World.dll
 H:\WorldLib\World\obj\Debug\World.pdb
+D:\src\WorldLib\World\bin\Debug\World.dll
+D:\src\WorldLib\World\bin\Debug\World.pdb
+D:\src\WorldLib\World\bin\Debug\ClientPlugins.dll
+D:\src\WorldLib\World\bin\Debug\ClientPlugins.pdb
+D:\src\WorldLib\World\obj\Debug\World.csprojResolveAssemblyReference.cache
+D:\src\WorldLib\World\obj\Debug\World.dll
+D:\src\WorldLib\World\obj\Debug\World.pdb

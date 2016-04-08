@@ -49,5 +49,10 @@ namespace WindowsFormsApplication2
                 Application.Exit();
             }
         }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Myself.Instance.Save();
+        }
     }
 }

@@ -84,8 +84,9 @@
             this.ClientSize = new System.Drawing.Size(557, 163);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "r";
             this.Activated += new System.EventHandler(this.Form1_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.onFormKeyUp);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();

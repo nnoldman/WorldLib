@@ -8,3 +8,7 @@ H:\Libs\ClientPlugins.dll
 H:\Libs\ClientPlugins.pdb
 H:\WorldLib\ClientPlugin\obj\Debug\ClientPlugins.dll
 H:\WorldLib\ClientPlugin\obj\Debug\ClientPlugins.pdb
+D:\src\Libs\ClientPlugins.dll
+D:\src\Libs\ClientPlugins.pdb
+D:\src\WorldLib\ClientPlugin\obj\Debug\ClientPlugins.dll
+D:\src\WorldLib\ClientPlugin\obj\Debug\ClientPlugins.pdb

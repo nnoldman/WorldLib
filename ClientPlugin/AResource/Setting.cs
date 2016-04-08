@@ -7,7 +7,7 @@ public class Setting
 {
     public static string XMLExtension = ".xml";
     public static string DataPath = "Assets/";
-    public static string ResourcePath = "Assets/Resources/";
+    public static string ResourcePath = "";
     public static string ScenePath = "Assets/Resources/mapdata/";
     public static bool Editing = true;
     public static int NameLength = 5;
