@@ -7,9 +7,9 @@ using World.TextProcessor;
 
 namespace GameData
 {
-    public class ExternPhraseData : GameData<ExternPhraseData>
+    public class ExternExpressionData : GameData<ExternExpressionData>
     {
-        static public readonly string fileName = "xml/ExternPhraseData";
+        static public readonly string fileName = "xml/ExternExpressionData";
         public List<string> elements;
         public string name;
     }

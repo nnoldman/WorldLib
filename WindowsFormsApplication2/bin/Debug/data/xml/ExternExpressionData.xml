@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <record elements="Cmd;Unknown;词;系动词;词型" name="Expression_AddWordType" id="1" />
+  <record elements="Cmd;Unknown;词型;系动词;词型" name="Expression_AddWordType1" id="2" />
+  <record elements="Cmd;Unknown;系动词;词型" name="Expression_AddWord" id="3" />
+  <record elements="名词;系动词;代词;？" name="Expression_ZhuXiBiao" id="4" />
+  <record elements="名词;系动词;疑问代词" name="Expression_ZhuXiBiao_YiWen" id="5" />
+  <record elements="名词;动词;名词" name="Expression_ZhuWeiBing" id="6" />
+  <record elements="Unknown;系动词;名词" name="Expression_Define" id="7" />
+</root>

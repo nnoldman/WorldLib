@@ -71,7 +71,7 @@ namespace World.Object
             Scanner scanner = new Scanner();
             var words = scanner.Scan(text);
             Parser parser = new Parser();
-            Phrase p = parser.Parse(words);
+            Expression p = parser.Parse(words);
             if (p)
             {
                 if (p.IsCmd())

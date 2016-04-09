@@ -8,14 +8,14 @@ namespace World.TextProcessor
 {
     public class Parser
     {
-        public Phrase Parse(List<Word> words)
+        public Expression Parse(List<Word> words)
         {
-            Phrase p = null;
-            foreach(var phrase in StorePhrase.getStore)
+            Expression p = null;
+            foreach(var Expression in StoreExpression.getStore)
             {
-                if (phrase.Value.Match(words))
+                if (Expression.Value.Match(words))
                 {
-                    p = phrase.Value;
+                    p = Expression.Value;
                     break;
                 }
             }

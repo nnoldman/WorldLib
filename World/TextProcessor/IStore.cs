@@ -57,7 +57,7 @@ namespace World.TextProcessor
             return uw;
         }
     }
-    public class StorePhrase : IStore<string, Phrase>
+    public class StoreExpression : IStore<string, Expression>
     {
     }
 }

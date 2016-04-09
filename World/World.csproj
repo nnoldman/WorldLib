@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="Config.cs" />
     <Compile Include="DataCenter.cs" />
-    <Compile Include="ExternPhraseData.cs" />
+    <Compile Include="ExternExpressionData.cs" />
     <Compile Include="ExternWordType.cs" />
     <Compile Include="IBool.cs" />
     <Compile Include="Input.cs" />
@@ -62,7 +62,8 @@
     <Compile Include="Object\ReplaceAttribute.cs" />
     <Compile Include="Option.cs" />
     <Compile Include="TextProcessor\Parser.cs" />
-    <Compile Include="TextProcessor\Phrase\ExternPhrase.cs" />
+    <Compile Include="TextProcessor\Phrase\Expression.cs" />
+    <Compile Include="TextProcessor\Phrase\ExternExpression.cs" />
     <Compile Include="TextProcessor\Word\InnerWordTyeps.cs" />
     <Compile Include="TextProcessor\Word\UnknownWord.cs" />
     <Compile Include="Scene.cs" />
@@ -72,7 +73,6 @@
     <Compile Include="Object\SceneThing.cs" />
     <Compile Include="Object\SceneTime.cs" />
     <Compile Include="TextProcessor\Phrase\Phrase.cs" />
-    <Compile Include="TextProcessor\Phrase\InnerPhraseSample.cs" />
     <Compile Include="TextProcessor\Phrase\SequenceWord.cs" />
     <Compile Include="TextProcessor\Punctuation.cs" />
     <Compile Include="TextProcessor\Purpose.cs" />

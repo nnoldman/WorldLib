@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace World.TextProcessor
 {
-    public class Phrase : IBool
+    public class Expression : IBool
     {
         //public string text;
         public string name = string.Empty;
@@ -32,7 +32,7 @@ namespace World.TextProcessor
         /// <summary>
         /// 构件
         /// </summary>
-        public List<PhraseElement> elements
+        public List<ExpressionElement> elements
         {
             get
             {
@@ -43,7 +43,7 @@ namespace World.TextProcessor
                 return mElements;
             }
         }
-        protected List<PhraseElement> mElements;
+        protected List<ExpressionElement> mElements;
 
         public StringBuilder builder = new StringBuilder();
 
@@ -53,16 +53,16 @@ namespace World.TextProcessor
         }
         protected void MakeElementInner()
         {
-            mElements = new List<PhraseElement>();
+            mElements = new List<ExpressionElement>();
             Type tp = this.GetType();
             object[] attrs = tp.GetCustomAttributes(true);
             if (attrs != null)
             {
                 foreach (var att in attrs)
                 {
-                    if (att is PhraseElement)
+                    if (att is ExpressionElement)
                     {
-                        mElements.Add((PhraseElement)att);
+                        mElements.Add((ExpressionElement)att);
                     }
                 }
             }
@@ -80,7 +80,7 @@ namespace World.TextProcessor
                 for (int i = 0; i < words.Count; ++i)
                 {
                     Word word = words[i];
-                    PhraseElement element = elements[i];
+                    ExpressionElement element = elements[i];
                     if (!word.IsType(element.wordType))
                         return false;
                 }
@@ -92,7 +92,7 @@ namespace World.TextProcessor
         public string OutPut()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(string.Format("Phrase({0}):", name));
+            sb.Append(string.Format("Expression({0}):", name));
             foreach (var ele in elements)
             {
                 sb.Append(ele.wordType);
@@ -100,11 +100,11 @@ namespace World.TextProcessor
             }
             return sb.ToString();
         }
-        public Phrase Copy()
+        public Expression Copy()
         {
-            Phrase phrase = new Phrase();
-            phrase = this;
-            return phrase;
+            Expression Expression = new Expression();
+            Expression = this;
+            return Expression;
         }
     }
 

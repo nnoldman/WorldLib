@@ -60,10 +60,10 @@ namespace World
         public const string TokenPunction_GanTanHao = "！";
 
 
-        public const string TokenPhrase_Cmd = "cmd";
-        public const string TokenPhrase_ZhuXiBiao = "主系表";
-        public const string TokenPhrase_ZhuWeiBing = "主谓宾";
-        public const string TokenPhrase_ZhuXiBiaoQuery = "疑问主系表";
+        public const string TokenExpression_Cmd = "cmd";
+        public const string TokenExpression_ZhuXiBiao = "主系表";
+        public const string TokenExpression_ZhuWeiBing = "主谓宾";
+        public const string TokenExpression_ZhuXiBiaoQuery = "疑问主系表";
 
     }
 }

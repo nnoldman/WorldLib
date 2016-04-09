@@ -15,20 +15,16 @@ namespace World.TextProcessor
     }
 
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = false)]
-    public class PhraseElement : Attribute
+    public class ExpressionElement : Attribute
     {
         public string wordType = Config.TokenUnknown;
     }
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
-    public class PhraseName : Attribute
+    public class ExpressionName : Attribute
     {
         public string Name = string.Empty;
     }
-    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
-    public  class PhraseElementNull : Attribute
-    {
-        public bool CanNullAll;
-    }
+
 
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
     public class Proccessor : Attribute

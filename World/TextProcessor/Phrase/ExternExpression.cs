@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace World.TextProcessor
 {
-    public class ExternPhrase : Phrase
+    public class ExternExpression : Expression
     {
-        public void Init(GameData.ExternPhraseData data)
+        public void Init(GameData.ExternExpressionData data)
         {
             if (data.elements != null)
             {
-                mElements = new List<PhraseElement>();
+                mElements = new List<ExpressionElement>();
                 foreach (var ele in data.elements)
                 {
-                    PhraseElement element = new PhraseElement();
+                    ExpressionElement element = new ExpressionElement();
                     element.wordType = ele;
                     mElements.Add(element);
                 }

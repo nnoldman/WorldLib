@@ -30,8 +30,8 @@ namespace World
             InitInnerWords();
             InitExternWords();
 
-            InitInnerPhrases();
-            InitExternPhrases();
+            InitInnerExpressions();
+            InitExternExpressions();
         }
 
         public static void Save()
@@ -68,19 +68,19 @@ namespace World
             }
 
             {
-                GameData.ExternPhraseData.dataMap.Clear();
+                GameData.ExternExpressionData.dataMap.Clear();
                 int index = 0;
-                foreach (var d in StorePhrase.getStore)
+                foreach (var d in StoreExpression.getStore)
                 {
-                    ExternPhraseData ewt = new ExternPhraseData();
+                    ExternExpressionData ewt = new ExternExpressionData();
                     ewt.id = ++index;
                     ewt.name = d.Value.name;
                     ewt.elements = new List<string>();
                     d.Value.elements.ForEach((item) => ewt.elements.Add(item.wordType));
-                    GameData.ExternPhraseData.dataMap.Add(ewt.id, ewt);
+                    GameData.ExternExpressionData.dataMap.Add(ewt.id, ewt);
                 }
 
-                GameData.ExternPhraseData.SaveGameData();
+                GameData.ExternExpressionData.SaveGameData();
             }
         }
 
@@ -251,37 +251,37 @@ namespace World
                 }
             }
         }
-        static void InitInnerPhrases()
+        static void InitInnerExpressions()
         {
             Assembly asm = typeof(DataCenter).Assembly;
             Type[] types = asm.GetTypes();
-            Type baseType = typeof(Phrase);
+            Type baseType = typeof(Expression);
 
             foreach (var tp in types)
             {
                 if (tp.IsSubclassOf(baseType))
                 {
-                    Phrase phrase = (Phrase)(tp.GetConstructor(Type.EmptyTypes).Invoke(null));
-                    var attrs = tp.GetCustomAttribute(typeof(PhraseName));
+                    Expression Expression = (Expression)(tp.GetConstructor(Type.EmptyTypes).Invoke(null));
+                    var attrs = tp.GetCustomAttribute(typeof(ExpressionName));
                     if (attrs != null)
                     {
-                        phrase.name = ((PhraseName)attrs).Name;
+                        Expression.name = ((ExpressionName)attrs).Name;
 
-                        StorePhrase.Add((StorePhrase.getStore.Count + 1).ToString(), phrase);
+                        StoreExpression.Add((StoreExpression.getStore.Count + 1).ToString(), Expression);
                     }
                 }
             }
         }
 
-        static void InitExternPhrases()
+        static void InitExternExpressions()
         {
-            foreach(var d in GameData.ExternPhraseData.dataMap)
+            foreach(var d in GameData.ExternExpressionData.dataMap)
             {
-                ExternPhrase phrase = new ExternPhrase();
-                phrase.Init(d.Value);
+                ExternExpression Expression = new ExternExpression();
+                Expression.Init(d.Value);
                 try
                 {
-                    StorePhrase.Add(d.Key.ToString(), phrase);
+                    StoreExpression.Add(d.Key.ToString(), Expression);
                 }
                 catch
                 {
