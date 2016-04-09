@@ -14,52 +14,51 @@ namespace World.TextProcessor
             return true;
         }
     }
-    [PhraseElement(wordType = Config.TokenCommand)]
+    [PhraseElement(wordType = Config.TokenCommandType)]
     [PhraseElement(wordType = Config.TokenUnknown)]
     [PhraseElement(wordType = Config.TokenSingletonWord)]
     [PhraseElement(wordType = Config.TokenCopula)]
     [PhraseElement(wordType = Config.TokenWordType)]
-    [PhraseName(Name = Config.TokenPhrase_Cmd)]
+    [PhraseName(Name = "Phrase_AddWordType")]
     public class Phrase_AddWordType : PhraseCmd
     {
         public override void ExecuteCmd(List<Word> words)
         {
-            WordType wt = new WordType();
-            wt.name = words[1].content + Config.TokenSingletonWord;
-            wt.parent = words[4].content;
-            StoreWordType.Add(wt.name, wt);
+            Linker.Clear();
+            Linker.Invoke(Linker.CacheWordTypeWithSingleWord, words, 1);
+            Linker.Invoke(Linker.SetCacheWordTypeParent, words, 4);
         }
     }
 
-    [PhraseElement(wordType = Config.TokenCommand)]
+    [PhraseElement(wordType = Config.TokenCommandType)]
     [PhraseElement(wordType = Config.TokenUnknown)]
     [PhraseElement(wordType = Config.TokenWordType)]
     [PhraseElement(wordType = Config.TokenCopula)]
     [PhraseElement(wordType = Config.TokenWordType)]
-    [PhraseName(Name = Config.TokenPhrase_Cmd)]
+    [PhraseName(Name = "Phrase_AddWordType1")]
     public class Phrase_AddWordType1 : PhraseCmd
     {
         public override void ExecuteCmd(List<Word> words)
         {
-            WordType wt = new WordType();
-            wt.name = words[1].content + Config.TokenSingletonWord;
-            wt.parent = words[4].content;
-            StoreWordType.Add(wt.name, wt);
+            Linker.Clear();
+            Linker.Invoke(Linker.CacheWordTypeWithWordType, words, 1);
+            Linker.Invoke(Linker.CacheWordTypeAppendWordType, words, 2);
+            Linker.Invoke(Linker.SetCacheWordTypeParent, words, 4);
         }
     }
 
-    [PhraseElement(wordType = Config.TokenCommand)]
+    [PhraseElement(wordType = Config.TokenCommandType)]
     [PhraseElement(wordType = Config.TokenUnknown)]
     [PhraseElement(wordType = Config.TokenCopula)]
     [PhraseElement(wordType = Config.TokenWordType)]
-    [PhraseName(Name = Config.TokenWordType)]
+    [PhraseName(Name = "Phrase_AddWord")]
     public class Phrase_AddWord : PhraseCmd
     {
         public override void ExecuteCmd(List<Word> words)
         {
-            Nervous.Linker.Clear();
-            Nervous.Linker.Invoke(Nervous.Linker.CacheOldWord, words, 1);
-            Nervous.Linker.Invoke(Nervous.Linker.AddWordWithCache, words, 3);
+            Linker.Clear();
+            Linker.Invoke(Linker.CacheOldWord, words, 1);
+            Linker.Invoke(Linker.AddWordWithCache, words, 3);
         }
     }
 
@@ -67,29 +66,30 @@ namespace World.TextProcessor
     [PhraseElement(wordType = Config.TokenCopula)]
     [PhraseElement(wordType = Config.TokenPronoun)]
     [PhraseElement(wordType = Config.TokenPunction_WenHao)]
-    [PhraseName(Name = Config.TokenPhrase_ZhuXiBiao)]
+    [PhraseName(Name = "Phrase_ZhuXiBiao")]
     public class Phrase_ZhuXiBiao : Phrase
     {
     }
     [PhraseElement(wordType = Config.TokenNoun)]
     [PhraseElement(wordType = Config.TokenCopula)]
     [PhraseElement(wordType = Config.TokenQueryPronoun)]
-    [PhraseName(Name = Config.TokenPhrase_ZhuXiBiaoQuery)]
+    [PhraseName(Name = "Phrase_ZhuXiBiao_YiWen")]
     public class Phrase_ZhuXiBiao_YiWen : Phrase
     {
         public override string GenerateAnswer(List<Word> words)
         {
-            Nervous.Linker.Clear();
-            Nervous.Linker.Invoke(Nervous.Linker.LinkObjectByReplace, words, 0);
-            Nervous.Linker.Invoke(Nervous.Linker.LinkWord, words, 1);
-            Nervous.Linker.Invoke(Nervous.Linker.LinkObjectName, words, 0);
-            return Nervous.Linker.GetText(); 
+            Linker.Clear();
+            Linker.Invoke(Linker.LinkObjectByReplace, words, 0);
+            Linker.Invoke(Linker.LinkWord, words, 1);
+            Linker.Invoke(Linker.LinkObjectName, words, 0);
+            return Linker.GetText(); 
         }
     }
 
     [PhraseElement(wordType = Config.TokenNoun)]
     [PhraseElement(wordType = Config.TokenVerb)]
     [PhraseElement(wordType = Config.TokenNoun)]
+    [PhraseName(Name = "Phrase_ZhuWeiBing")]
     public class Phrase_ZhuWeiBing : Phrase
     {
     }
@@ -97,6 +97,7 @@ namespace World.TextProcessor
     [PhraseElement(wordType = Config.TokenUnknown)]
     [PhraseElement(wordType = Config.TokenCopula)]
     [PhraseElement(wordType = Config.TokenNoun)]
+    [PhraseName(Name = "Phrase_Define")]
     public class Phrase_Define : Phrase
     {
     }

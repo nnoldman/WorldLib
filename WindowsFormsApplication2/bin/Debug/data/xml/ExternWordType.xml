@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <record name="--" id="1" />
+  <record name="Cmd" id="1" />
   <record name="词" parent="名词" id="2" />
   <record name="词型" parent="名词" id="3" />
   <record name="代词" parent="名词" id="4" />
@@ -13,5 +13,6 @@
   <record name="动词" id="11" />
   <record name="系动词" parent="动词" id="12" />
   <record name="被动词" parent="动词" id="13" />
-  <record name="动名词" id="14" />
+  <record name="--" id="14" />
+  <record name="动名词" id="15" />
 </root>

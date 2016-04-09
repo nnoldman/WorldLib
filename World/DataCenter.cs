@@ -188,7 +188,7 @@ namespace World
                 Word w = new Word();
                 w.content = Config.TokenCommand;
                 WordTypeFunction tf = new WordTypeFunction();
-                tf.typeName = Config.TokenCommand;
+                tf.typeName = Config.TokenCommandType;
                 tf.functionName = "Relative";
                 w.typeFunctions.Add(tf);
 

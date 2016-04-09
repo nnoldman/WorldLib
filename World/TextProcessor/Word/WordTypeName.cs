@@ -29,4 +29,9 @@ namespace World.TextProcessor
     {
         public bool CanNullAll;
     }
+
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
+    public class Proccessor : Attribute
+    {
+    }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace World.TextProcessor
 {
-    [WordTypeName(Name = Config.TokenCommand)]
+    [WordTypeName(Name = Config.TokenCommandType)]
     public class WordType_Cmd : WordType
     {
     }

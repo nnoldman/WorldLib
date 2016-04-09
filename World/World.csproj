@@ -46,7 +46,7 @@
     <Compile Include="ExternWordType.cs" />
     <Compile Include="IBool.cs" />
     <Compile Include="Input.cs" />
-    <Compile Include="LinkerComponent.cs" />
+    <Compile Include="Linker.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Object\AttributeRestrain.cs" />
     <Compile Include="Object\Body.cs" />
@@ -78,16 +78,11 @@
     <Compile Include="TextProcessor\Purpose.cs" />
     <Compile Include="TextProcessor\Scanner.cs" />
     <Compile Include="TextProcessor\IStore.cs" />
-    <Compile Include="TextProcessor\WordTypeCreator.cs" />
     <Compile Include="TextProcessor\Word\Word.cs" />
     <Compile Include="TextProcessor\Word\WordType.cs" />
     <Compile Include="TextProcessor\Word\WordTypeName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ExternWord.cs" />
-    <Compile Include="Unit.cs" />
-    <Compile Include="Word\Neuron.cs" />
-    <Compile Include="Word\WordCrator.cs" />
-    <Compile Include="Word\WordFunction.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClientPlugin\ClientPlugins.csproj">

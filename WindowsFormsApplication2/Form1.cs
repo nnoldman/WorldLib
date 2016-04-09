@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using World;
 using World.Object;
+using World.TextProcessor;
 
 namespace WindowsFormsApplication2
 {
@@ -18,8 +20,37 @@ namespace WindowsFormsApplication2
         public Form1()
         {
             InitializeComponent();
+            StoreWordType.onAdd += onAddWordType;
+            StoreWordType.onRemove += onRemoveWordType;
+
+            StoreWord.onAdd += onAddWord;
+            StoreWord.onRemove += onRemoveWord;
+
+            List<string> nameList = Linker.GetProcesseres();
+            nameList.ForEach((item) => this.treeView3.Nodes.Add(item, item));
+
             World.Scene.Instance.Initialize();
             Myself.Instance.outHandler += OnTalk;
+        }
+
+        private void onRemoveWordType(string k)
+        {
+            this.treeView1.Nodes.RemoveByKey(k);
+        }
+
+        private void onAddWordType(string k, WordType v)
+        {
+            this.treeView1.Nodes.Add(k, k);
+        }
+
+        private void onRemoveWord(string k)
+        {
+            this.treeView2.Nodes.RemoveByKey(k);
+        }
+
+        private void onAddWord(string k, Word v)
+        {
+            this.treeView2.Nodes.Add(k, k);
         }
 
         void OnTalk(string text)

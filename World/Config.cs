@@ -17,7 +17,7 @@ namespace World
         public const string TokenXiaoLi = "小力";
         public const string TokenReplace = "替代";
 
-        public const string TokenUnknown = "??";
+        public const string TokenUnknown = "Unknown";
         public const string TokenTrue = "是";
         public const string TokenFalse = "不";
         public const string TokenSpace = " ";
@@ -52,6 +52,7 @@ namespace World
         public const string TokenHas = "有";
         public const string TokenEverything = "--";
         public const string TokenCommand = "--";
+        public const string TokenCommandType = "Cmd";
 
         public const string TokenPunction_WenHao = "？";
         public const string TokenPunction_JuHao = "。";

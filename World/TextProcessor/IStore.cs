@@ -8,6 +8,11 @@ namespace World.TextProcessor
 {
     public class IStore<TKey, TValue>
     {
+        public delegate void OnAdd(TKey k, TValue v);
+        public delegate void OnRemove(TKey k);
+
+        public static OnAdd onAdd;
+        public static OnRemove onRemove;
         public static Dictionary<TKey, TValue> getStore
         {
             get
@@ -19,6 +24,8 @@ namespace World.TextProcessor
         public static void Add(TKey k, TValue v)
         {
             mStore.Add(k, v);
+            if (onAdd != null)
+                onAdd(k, v);
         }
         public static TValue Get(TKey key)
         {
@@ -28,6 +35,8 @@ namespace World.TextProcessor
         }
         public static void Remove(TKey key)
         {
+            if (onRemove != null)
+                onRemove(key);
             mStore.Remove(key);
         }
     }

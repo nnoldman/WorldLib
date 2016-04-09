@@ -11,7 +11,6 @@ namespace World.TextProcessor
         public Phrase Parse(List<Word> words)
         {
             Phrase p = null;
-
             foreach(var phrase in StorePhrase.getStore)
             {
                 if (phrase.Value.Match(words))

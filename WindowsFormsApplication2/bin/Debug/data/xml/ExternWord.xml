@@ -47,7 +47,22 @@
   </record>
   <record content="--" id="10">
     <wordTypes>
-      <wordTypesItem typeName="--" functionName="Relative" />
+      <wordTypesItem typeName="Cmd" functionName="Relative" />
+    </wordTypes>
+  </record>
+  <record content="食物" id="11">
+    <wordTypes>
+      <wordTypesItem typeName="名词" />
+    </wordTypes>
+  </record>
+  <record content="打" id="12">
+    <wordTypes>
+      <wordTypesItem typeName="动词" />
+    </wordTypes>
+  </record>
+  <record content="动物" id="13">
+    <wordTypes>
+      <wordTypesItem typeName="名词" />
     </wordTypes>
   </record>
 </root>
