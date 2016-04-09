@@ -65,4 +65,9 @@
       <wordTypesItem typeName="名词" />
     </wordTypes>
   </record>
+  <record content="汽车" id="14">
+    <wordTypes>
+      <wordTypesItem typeName="名词" />
+    </wordTypes>
+  </record>
 </root>

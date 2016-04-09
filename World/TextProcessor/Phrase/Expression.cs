@@ -24,9 +24,12 @@ namespace World.TextProcessor
     {
         public override void ExecuteCmd(List<Word> words)
         {
-            Linker.Clear();
-            Linker.Invoke(Linker.CacheWordTypeWithSingleWord, words, 1);
-            Linker.Invoke(Linker.SetCacheWordTypeParent, words, 4);
+            AtomicOperation.Clear();
+            AtomicOperationArgment args = new AtomicOperationArgment();
+            args.words = words;
+            AtomicOperation.Invoke(AtomicOperation.AddParam, ref args, 1);
+            AtomicOperation.Invoke(AtomicOperation.AddParam, ref args, 4);
+            AtomicOperation.Invoke(AtomicOperation.AddWord,ref args);
         }
     }
 
@@ -40,10 +43,10 @@ namespace World.TextProcessor
     {
         public override void ExecuteCmd(List<Word> words)
         {
-            Linker.Clear();
-            Linker.Invoke(Linker.CacheWordTypeWithWordType, words, 1);
-            Linker.Invoke(Linker.CacheWordTypeAppendWordType, words, 2);
-            Linker.Invoke(Linker.SetCacheWordTypeParent, words, 4);
+            //Linker.Clear();
+            //Linker.Invoke(Linker.CacheWordTypeWithWordType, words, 1);
+            //Linker.Invoke(Linker.CacheWordTypeAppendWordType, words, 2);
+            //Linker.Invoke(Linker.SetCacheWordTypeParent, words, 4);
         }
     }
 
@@ -56,9 +59,10 @@ namespace World.TextProcessor
     {
         public override void ExecuteCmd(List<Word> words)
         {
-            Linker.Clear();
-            Linker.Invoke(Linker.CacheOldWord, words, 1);
-            Linker.Invoke(Linker.AddWordWithCache, words, 3);
+            AtomicOperationArgment args = new AtomicOperationArgment() { words = words };
+            AtomicOperation.Invoke(AtomicOperation.AddParam, ref args, 1);
+            AtomicOperation.Invoke(AtomicOperation.AddParam, ref args, 3);
+            AtomicOperation.Invoke(AtomicOperation.AddWord, ref args);
         }
     }
 
@@ -78,11 +82,11 @@ namespace World.TextProcessor
     {
         public override string GenerateAnswer(List<Word> words)
         {
-            Linker.Clear();
-            Linker.Invoke(Linker.LinkObjectByReplace, words, 0);
-            Linker.Invoke(Linker.LinkWord, words, 1);
-            Linker.Invoke(Linker.LinkObjectName, words, 0);
-            return Linker.GetText(); 
+            AtomicOperationArgment args = new AtomicOperationArgment() { words = words };
+            AtomicOperation.Invoke(AtomicOperation.LinkObjectByReplace, ref args, 0);
+            AtomicOperation.Invoke(AtomicOperation.LinkWord, ref args, 1);
+            AtomicOperation.Invoke(AtomicOperation.LinkObjectName, ref args, 0);
+            return args.outputString.ToString();
         }
     }
 
@@ -92,6 +96,14 @@ namespace World.TextProcessor
     [ExpressionName(Name = "Expression_ZhuWeiBing")]
     public class Expression_ZhuWeiBing : Expression
     {
+        public override void ExecuteCmd(List<Word> words)
+        {
+            //Input input = new Input();
+            //AtomicOperation.GetFunc(input);
+            //AtomicOperation.PushParam(input);
+            //AtomicOperation.PushParam(input);
+            //AtomicOperation.Invoke(input);
+        }
     }
 
     [ExpressionElement(wordType = Config.TokenUnknown)]

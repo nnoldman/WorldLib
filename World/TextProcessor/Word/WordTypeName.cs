@@ -30,4 +30,18 @@ namespace World.TextProcessor
     public class Proccessor : Attribute
     {
     }
+
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
+    public class ForwardPropagation : Attribute
+    {
+    }
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
+    public class BackwardPropagation : Attribute
+    {
+    }
+
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
+    public class Propagation : Attribute
+    {
+    }
 }

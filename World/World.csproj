@@ -40,13 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AtomicOperationArgment.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="DataCenter.cs" />
     <Compile Include="ExternExpressionData.cs" />
     <Compile Include="ExternWordType.cs" />
     <Compile Include="IBool.cs" />
     <Compile Include="Input.cs" />
-    <Compile Include="Linker.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Object\AttributeRestrain.cs" />
     <Compile Include="Object\Body.cs" />
@@ -61,6 +61,7 @@
     <Compile Include="Object\ObjectDefine.cs" />
     <Compile Include="Object\ReplaceAttribute.cs" />
     <Compile Include="Option.cs" />
+    <Compile Include="TextProcessor\AtomicOperation.cs" />
     <Compile Include="TextProcessor\Parser.cs" />
     <Compile Include="TextProcessor\Phrase\Expression.cs" />
     <Compile Include="TextProcessor\Phrase\ExternExpression.cs" />

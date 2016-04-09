@@ -26,13 +26,25 @@ namespace WindowsFormsApplication2
             StoreWord.onAdd += onAddWord;
             StoreWord.onRemove += onRemoveWord;
 
-            List<string> nameList = Linker.GetProcesseres();
-            nameList.ForEach((item) => this.treeView3.Nodes.Add(item, item));
+            InitPropagation();
 
             World.Scene.Instance.Initialize();
             Myself.Instance.outHandler += OnTalk;
         }
+        void InitPropagation()
+        {
+            {
+                var parent = this.treeView3.Nodes.Add("ForwardPropagations");
+                List<string> nameList = AtomicOperation.GetForwardProcesseres();
+                nameList.ForEach((item) => parent.Nodes.Add(item, item));
+            }
 
+            {
+                var parent = this.treeView3.Nodes.Add("BackwardPropagations");
+                List<string> nameList = AtomicOperation.GetBackwardProcesseres();
+                nameList.ForEach((item) => parent.Nodes.Add(item, item));
+            }
+        }
         private void onRemoveWordType(string k)
         {
             this.treeView1.Nodes.RemoveByKey(k);

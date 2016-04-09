@@ -102,9 +102,9 @@ namespace World.TextProcessor
         }
         public Expression Copy()
         {
-            Expression Expression = new Expression();
-            Expression = this;
-            return Expression;
+            Expression exp = new Expression();
+            exp = this;
+            return exp;
         }
     }
 
