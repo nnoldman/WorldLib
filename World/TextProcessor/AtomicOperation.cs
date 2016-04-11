@@ -11,7 +11,6 @@ using World.TextProcessor;
 public class AtomicOperation
 {
     public delegate void AOper(ref AtomicOperationArgment args, int wordIndex = -1);
-    static List<LinkerParam> mParams = new List<LinkerParam>();
     public static List<string> GetForwardProcesseres()
     {
         List<string> nameList = new List<string>();
@@ -33,22 +32,28 @@ public class AtomicOperation
         MethodInfo[] methods = tp.GetMethods();
         foreach (var m in methods)
         {
-            
+
             if (null != m.GetCustomAttribute(typeof(BackwardPropagation)))
                 nameList.Add(m.Name);
         }
         return nameList;
     }
-    public static void Clear()
+    public static void Invoke(LinkerParam param, ref AtomicOperationArgment args)
     {
-        mParams.Clear();
+        Type tp = typeof(AtomicOperation);
+        MethodInfo method = tp.GetMethod(param.Act);
+        object[] parameters = new object[2];
+        parameters[0] = args;
+        parameters[1] = param.WordIndex;
+        method.Invoke(null, parameters);
     }
     public static void Invoke(AOper p, ref AtomicOperationArgment args, int wordIndex = -1)
     {
         LinkerParam param = new LinkerParam();
-        param.action = p.Method.Name;
-        mParams.Add(param);
-        if(p!=null)
+        param.Act = p.Method.Name;
+        param.WordIndex = wordIndex;
+        args.AddLinkParam(param);
+        if (p != null)
             p(ref args, wordIndex);
     }
     public static void CreateTempWord(ref AtomicOperationArgment args)
@@ -72,9 +77,9 @@ public class AtomicOperation
     }
 
     [BackwardPropagation]
-    public static void AddWord(ref AtomicOperationArgment args,int index)
+    public static void AddWord(ref AtomicOperationArgment args, int index)
     {
-        string content = args.GetParam();
+        string content = args.GetNextParam();
 
         List<WordTypeFunction> oldWrodTypeFunctions = new List<WordTypeFunction>();
         Word old = StoreWord.Get(content);
@@ -86,7 +91,7 @@ public class AtomicOperation
         Word newword = new Word();
         newword.content = content;
         WordTypeFunction wtf = new WordTypeFunction();
-        wtf.typeName = args.GetParam();
+        wtf.typeName = args.GetNextParam();
         newword.typeFunctions = new List<WordTypeFunction>();
         newword.typeFunctions.AddRange(oldWrodTypeFunctions);
         newword.typeFunctions.Add(wtf);
@@ -103,24 +108,24 @@ public class AtomicOperation
     [ForwardPropagation]
     public static void LinkWord(ref AtomicOperationArgment args, int index = -1)
     {
-        args.outputString.Append(args.words[index].content);
+        args.OutputString.Append(args.Words[index].content);
     }
     [ForwardPropagation]
     public static void LinkObjectByReplace(ref AtomicOperationArgment args, int index = -1)
     {
-        string content = args.words[index].content;
+        string content = args.Words[index].content;
         SceneObject obj = Scene.Instance.GetObjectByReplace(content);
         if (obj)
         {
             OutReplaceAttribute att = obj.GetAttributeByType<OutReplaceAttribute>();
-            args.outputString.Append(att.name);
+            args.OutputString.Append(att.name);
         }
     }
     [ForwardPropagation]
     public static void LinkObjectName(ref AtomicOperationArgment args, int index = -1)
     {
-        string content = args.words[index].content;
+        string content = args.Words[index].content;
         SceneObject obj = Scene.Instance.GetObjectByReplace(content);
-        args.outputString.Append(obj.GetName());
+        args.OutputString.Append(obj.GetName());
     }
 }

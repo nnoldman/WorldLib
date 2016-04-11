@@ -64,6 +64,7 @@
     <Compile Include="TextProcessor\AtomicOperation.cs" />
     <Compile Include="TextProcessor\Parser.cs" />
     <Compile Include="TextProcessor\Phrase\Expression.cs" />
+    <Compile Include="TextProcessor\Phrase\ExpressionSamples.cs" />
     <Compile Include="TextProcessor\Phrase\ExternExpression.cs" />
     <Compile Include="TextProcessor\Word\InnerWordTyeps.cs" />
     <Compile Include="TextProcessor\Word\UnknownWord.cs" />
@@ -73,8 +74,6 @@
     <Compile Include="Object\SceneSite.cs" />
     <Compile Include="Object\SceneThing.cs" />
     <Compile Include="Object\SceneTime.cs" />
-    <Compile Include="TextProcessor\Phrase\Phrase.cs" />
-    <Compile Include="TextProcessor\Phrase\SequenceWord.cs" />
     <Compile Include="TextProcessor\Punctuation.cs" />
     <Compile Include="TextProcessor\Purpose.cs" />
     <Compile Include="TextProcessor\Scanner.cs" />

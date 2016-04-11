@@ -7,26 +7,39 @@ using World.TextProcessor;
 
 public class LinkerParam
 {
-    public string action;
-    public int wordIndex;
+    public string Act;
+    public int WordIndex;
 }
 public class AtomicOperationArgment
 {
-    public List<Word> words;
+    public List<Word> Words;
 
-    public StringBuilder outputString = new StringBuilder();
+    public StringBuilder OutputString = new StringBuilder();
 
-    private List<string> argments = new List<string>();
+    private List<string> Argments = new List<string>();
 
+    private List<LinkerParam> mLinkParams = new List<LinkerParam>();
 
-    public string GetParam()
+    public void AddLinkParam(LinkerParam param)
     {
-        string content = argments[0];
-        argments.RemoveAt(0);
+        mLinkParams.Add(param);
+    }
+    public string GetNextParam()
+    {
+        string content = Argments[0];
+        Argments.RemoveAt(0);
         return content;
     }
     public void AddParam(int index)
     {
-        argments.Add(words[index].content);
+        Argments.Add(Words[index].content);
+    }
+
+    public void Record(Expression exp)
+    {
+        if(exp.LinkParams.Count==0)
+        {
+            exp.LinkParams.AddRange(mLinkParams);
+        }
     }
 }

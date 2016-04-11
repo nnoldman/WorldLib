@@ -11,6 +11,7 @@ namespace GameData
     {
         static public readonly string fileName = "xml/ExternExpressionData";
         public List<string> elements;
+        public List<LinkerParam> linkerParams;
         public string name;
     }
 }

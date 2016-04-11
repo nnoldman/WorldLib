@@ -76,7 +76,10 @@ namespace World
                     ewt.id = ++index;
                     ewt.name = d.Value.name;
                     ewt.elements = new List<string>();
+                    ewt.linkerParams = new List<LinkerParam>();
+
                     d.Value.elements.ForEach((item) => ewt.elements.Add(item.wordType));
+                    ewt.linkerParams.AddRange(d.Value.LinkParams);
                     GameData.ExternExpressionData.dataMap.Add(ewt.id, ewt);
                 }
 

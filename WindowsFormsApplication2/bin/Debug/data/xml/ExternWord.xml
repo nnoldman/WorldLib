@@ -70,4 +70,24 @@
       <wordTypesItem typeName="名词" />
     </wordTypes>
   </record>
+  <record content="大狗" id="15">
+    <wordTypes>
+      <wordTypesItem typeName="名词" />
+    </wordTypes>
+  </record>
+  <record content="小狗" id="16">
+    <wordTypes>
+      <wordTypesItem typeName="名词" />
+    </wordTypes>
+  </record>
+  <record content="飞艇" id="17">
+    <wordTypes>
+      <wordTypesItem typeName="名词" />
+    </wordTypes>
+  </record>
+  <record content="公路" id="18">
+    <wordTypes>
+      <wordTypesItem typeName="名词" />
+    </wordTypes>
+  </record>
 </root>
