@@ -12,7 +12,7 @@ public class LinkerParam
 }
 public class AtomicOperationArgment
 {
-    public List<Word> Words;
+    public List<Word> WordVecotr;
 
     public StringBuilder OutputString = new StringBuilder();
 
@@ -32,7 +32,7 @@ public class AtomicOperationArgment
     }
     public void AddParam(int index)
     {
-        Argments.Add(Words[index].content);
+        Argments.Add(WordVecotr[index].content);
     }
 
     public void Record(Expression exp)

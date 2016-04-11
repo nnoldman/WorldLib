@@ -8,12 +8,12 @@ namespace World.TextProcessor
 {
     public class Parser
     {
-        public Expression Parse(List<Word> words)
+        public Expression Parse(List<Word> wordVecotr)
         {
             Expression p = null;
             foreach(var Expression in StoreExpression.getStore)
             {
-                if (Expression.Value.Match(words))
+                if (Expression.Value.Match(wordVecotr))
                 {
                     p = Expression.Value;
                     break;

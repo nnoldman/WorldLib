@@ -32,7 +32,6 @@ public class AtomicOperation
         MethodInfo[] methods = tp.GetMethods();
         foreach (var m in methods)
         {
-
             if (null != m.GetCustomAttribute(typeof(BackwardPropagation)))
                 nameList.Add(m.Name);
         }
@@ -80,6 +79,7 @@ public class AtomicOperation
     public static void AddWord(ref AtomicOperationArgment args, int index)
     {
         string content = args.GetNextParam();
+        string typename = args.GetNextParam();
 
         List<WordTypeFunction> oldWrodTypeFunctions = new List<WordTypeFunction>();
         Word old = StoreWord.Get(content);
@@ -91,7 +91,7 @@ public class AtomicOperation
         Word newword = new Word();
         newword.content = content;
         WordTypeFunction wtf = new WordTypeFunction();
-        wtf.typeName = args.GetNextParam();
+        wtf.typeName = typename;
         newword.typeFunctions = new List<WordTypeFunction>();
         newword.typeFunctions.AddRange(oldWrodTypeFunctions);
         newword.typeFunctions.Add(wtf);
@@ -108,12 +108,12 @@ public class AtomicOperation
     [ForwardPropagation]
     public static void LinkWord(ref AtomicOperationArgment args, int index = -1)
     {
-        args.OutputString.Append(args.Words[index].content);
+        args.OutputString.Append(args.WordVecotr[index].content);
     }
     [ForwardPropagation]
     public static void LinkObjectByReplace(ref AtomicOperationArgment args, int index = -1)
     {
-        string content = args.Words[index].content;
+        string content = args.WordVecotr[index].content;
         SceneObject obj = Scene.Instance.GetObjectByReplace(content);
         if (obj)
         {
@@ -124,8 +124,20 @@ public class AtomicOperation
     [ForwardPropagation]
     public static void LinkObjectName(ref AtomicOperationArgment args, int index = -1)
     {
-        string content = args.Words[index].content;
+        string content = args.WordVecotr[index].content;
         SceneObject obj = Scene.Instance.GetObjectByReplace(content);
         args.OutputString.Append(obj.GetName());
+    }
+
+    [ForwardPropagation]
+    public static void LinkObjectAttribute(ref AtomicOperationArgment args, int index = -1)
+    {
+        string content = args.GetNextParam();
+        string attributeName = args.GetNextParam();
+
+        SceneObject obj = Scene.Instance.GetObjectByReplace(content);
+        var attr = obj.GetFirstAttribute(attributeName);
+        if(attr)
+            args.OutputString.Append(attr.GetContent());
     }
 }

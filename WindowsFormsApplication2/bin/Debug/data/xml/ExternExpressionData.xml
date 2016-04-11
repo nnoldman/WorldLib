@@ -7,11 +7,7 @@
     <linkerParams />
   </record>
   <record elements="Cmd;Unknown;系动词;词型" name="Expression_AddWord" id="3">
-    <linkerParams>
-      <linkerParamsItem Act="AddParam" WordIndex="1" />
-      <linkerParamsItem Act="AddParam" WordIndex="3" />
-      <linkerParamsItem Act="AddWord" WordIndex="-1" />
-    </linkerParams>
+    <linkerParams />
   </record>
   <record elements="名词;系动词;代词;？" name="Expression_ZhuXiBiao" id="4">
     <linkerParams />

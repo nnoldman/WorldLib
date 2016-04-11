@@ -18,14 +18,51 @@ namespace World.TextProcessor
             return false;
         }
 
-        public List<List<Word>> MakeUp(List<Word> words)
+        public List<List<Word>> MakeUp(List<Word> wordVecotr)
         {
             throw new Exception();
         }
-
-        public virtual void ExecuteCmd(List<Word> words)
+        public string GenerateAnswer(List<Word> wordVecotr)
         {
+            if (LinkParams.Count > 0)
+                return GenerateAnswerByExperience(wordVecotr);
+            else
+                return GenerateAnswerNativelly(wordVecotr);
+        }
 
+        public string GenerateAnswerByExperience(List<Word> wordVecotr)
+        {
+            AtomicOperationArgment args = new AtomicOperationArgment() { WordVecotr = wordVecotr };
+            if (LinkParams.Count > 0)
+            {
+                foreach (var param in LinkParams)
+                    AtomicOperation.Invoke(param, ref args);
+            }
+            return args.OutputString.ToString();
+        }
+        public virtual string GenerateAnswerNativelly(List<Word> wordVecotr)
+        {
+            throw new Exception();
+        }
+        public virtual void ExecuteCmd(List<Word> wordVecotr)
+        {
+            if (LinkParams.Count > 0)
+                ExecuteCmdByExperience(wordVecotr);
+            else
+                ExecuteCmdNativelly(wordVecotr);
+        }
+        public virtual void ExecuteCmdNativelly(List<Word> wordVector)
+        {
+            throw new Exception();
+        }
+        public void ExecuteCmdByExperience(List<Word> wordVector)
+        {
+            AtomicOperationArgment args = new AtomicOperationArgment() { WordVecotr = wordVector };
+            if (LinkParams.Count > 0)
+            {
+                foreach (var param in LinkParams)
+                    AtomicOperation.Invoke(param, ref args);
+            }
         }
         /// <summary>
         /// 构件
@@ -65,19 +102,16 @@ namespace World.TextProcessor
                 }
             }
         }
-        public virtual string GenerateAnswer(List<Word> words)
+        
+        public bool Match(List<Word> wordVecotr)
         {
-            throw new Exception();
-        }
-        public bool Match(List<Word> words)
-        {
-            if (words.Count < elements.Count)
+            if (wordVecotr.Count < elements.Count)
                 return false;
-            if (words.Count == elements.Count)
+            if (wordVecotr.Count == elements.Count)
             {
-                for (int i = 0; i < words.Count; ++i)
+                for (int i = 0; i < wordVecotr.Count; ++i)
                 {
-                    Word word = words[i];
+                    Word word = wordVecotr[i];
                     ExpressionElement element = elements[i];
                     if (!word.IsType(element.wordType))
                         return false;

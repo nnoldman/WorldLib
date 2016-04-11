@@ -12,12 +12,12 @@ namespace World.TextProcessor
     public class Input
     {
         public List<AtomicParameter> parameters = new List<AtomicParameter>();
-        public List<Word> words;
+        public List<Word> wordVecotr;
 
         public Word GetWord(int index)
         {
-            if (words != null && words.Count > index)
-                return words[index];
+            if (wordVecotr != null && wordVecotr.Count > index)
+                return wordVecotr[index];
             return null;
         }
     }

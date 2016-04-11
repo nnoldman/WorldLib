@@ -13,17 +13,6 @@ namespace World.TextProcessor
         {
             return true;
         }
-
-        public override void ExecuteCmd(List<Word> words)
-        {
-            AtomicOperationArgment args = new AtomicOperationArgment();
-            args.Words = words;
-            if (LinkParams.Count > 0)
-            {
-                foreach (var param in LinkParams)
-                    AtomicOperation.Invoke(param, ref args);
-            }
-        }
     }
     [ExpressionElement(wordType = Config.TokenCommandType)]
     [ExpressionElement(wordType = Config.TokenUnknown)]
@@ -33,13 +22,13 @@ namespace World.TextProcessor
     [ExpressionName(Name = "Expression_AddWordType")]
     public class Expression_AddWordType : ExpressionCmd
     {
-        public override void ExecuteCmd(List<Word> words)
+        public override void ExecuteCmdNativelly(List<Word> wordVecotr)
         {
-            AtomicOperationArgment args = new AtomicOperationArgment();
-            args.Words = words;
+            AtomicOperationArgment args = new AtomicOperationArgment() { WordVecotr = wordVecotr };
             AtomicOperation.Invoke(AtomicOperation.AddParam, ref args, 1);
             AtomicOperation.Invoke(AtomicOperation.AddParam, ref args, 4);
             AtomicOperation.Invoke(AtomicOperation.AddWord,ref args);
+            args.Record(this);
         }
     }
 
@@ -51,7 +40,7 @@ namespace World.TextProcessor
     [ExpressionName(Name = "Expression_AddWordType1")]
     public class Expression_AddWordType1 : ExpressionCmd
     {
-        public override void ExecuteCmd(List<Word> words)
+        public override void ExecuteCmdNativelly(List<Word> wordVecotr)
         {
             //Linker.Clear();
             //Linker.Invoke(Linker.CacheWordTypeWithWordType, words, 1);
@@ -67,20 +56,13 @@ namespace World.TextProcessor
     [ExpressionName(Name = "Expression_AddWord")]
     public class Expression_AddWord : ExpressionCmd
     {
-        public override void ExecuteCmd(List<Word> words)
+        public override void ExecuteCmdNativelly(List<Word> wordVecotr)
         {
-            if (LinkParams.Count > 0)
-            {
-                base.ExecuteCmd(words);
-            }
-            else
-            {
-                AtomicOperationArgment args = new AtomicOperationArgment() { Words = words };
-                AtomicOperation.Invoke(AtomicOperation.AddParam, ref args, 1);
-                AtomicOperation.Invoke(AtomicOperation.AddParam, ref args, 3);
-                AtomicOperation.Invoke(AtomicOperation.AddWord, ref args);
-                args.Record(this);
-            }
+            AtomicOperationArgment args = new AtomicOperationArgment() { WordVecotr = wordVecotr };
+            AtomicOperation.Invoke(AtomicOperation.AddParam, ref args, 1);
+            AtomicOperation.Invoke(AtomicOperation.AddParam, ref args, 3);
+            AtomicOperation.Invoke(AtomicOperation.AddWord, ref args);
+            args.Record(this);
         }
     }
 
@@ -98,12 +80,13 @@ namespace World.TextProcessor
     [ExpressionName(Name = "Expression_ZhuXiBiao_YiWen")]
     public class Expression_ZhuXiBiao_YiWen : Expression
     {
-        public override string GenerateAnswer(List<Word> words)
+        public override string GenerateAnswerNativelly(List<Word> wordVecotr)
         {
-            AtomicOperationArgment args = new AtomicOperationArgment() { Words = words };
+            AtomicOperationArgment args = new AtomicOperationArgment() { WordVecotr = wordVecotr };
             AtomicOperation.Invoke(AtomicOperation.LinkObjectByReplace, ref args, 0);
             AtomicOperation.Invoke(AtomicOperation.LinkWord, ref args, 1);
             AtomicOperation.Invoke(AtomicOperation.LinkObjectName, ref args, 0);
+            args.Record(this);
             return args.OutputString.ToString();
         }
     }
@@ -114,7 +97,7 @@ namespace World.TextProcessor
     [ExpressionName(Name = "Expression_ZhuWeiBing")]
     public class Expression_ZhuWeiBing : Expression
     {
-        public override void ExecuteCmd(List<Word> words)
+        public override void ExecuteCmdNativelly(List<Word> wordVecotr)
         {
             //Input input = new Input();
             //AtomicOperation.GetFunc(input);

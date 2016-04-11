@@ -37,11 +37,11 @@ namespace World.TextProcessor
         /// <returns></returns>
         List<Word> GetWords()
         {
-            List<Word> words = new List<Word>();
+            List<Word> wordVecotr = new List<Word>();
             List<TempWord> tempWordsKnown = GenerateKnownWords();
             List<TempWord> allwords = CompleteUnknownWords(tempWordsKnown);
-            allwords.ForEach((item) => words.Add(item.word));
-            return words;
+            allwords.ForEach((item) => wordVecotr.Add(item.word));
+            return wordVecotr;
         }
         List<TempWord> GenerateKnownWords()
         {

@@ -110,7 +110,7 @@ public class AResource
                                     {
                                         result.Add(id, obj);
                                     }
-                                    catch (Exception exc)
+                                    catch (Exception )
                                     {
                                         ALog.error(string.Format("{0} Repeated ID:{1}", fileName, id));
                                     }
